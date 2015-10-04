@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SGU_C2CStore.Models
@@ -64,6 +65,21 @@ namespace SGU_C2CStore.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; }
+
+        [Required]
+        [Display(Name = "Gender")]
+        public Gender Gender { get; set; }
+        
+        [Display(Name = "Bithday")]
+        public DateTime Bithday { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
