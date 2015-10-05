@@ -23,7 +23,8 @@ namespace SGU_C2CStore.Models
         [Display(Name = "Giá bán")]
         public virtual int Price { get; set; }
 
-        [Display(Name = "Tên loại")]
+        [Display(Name = "Mô tả")]
+        [DataType(DataType.MultilineText)]
         public virtual string Description { get; set; }
 
         [Display(Name = "Danh mục ảnh")]

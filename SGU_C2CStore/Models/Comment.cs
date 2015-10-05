@@ -17,6 +17,9 @@ namespace SGU_C2CStore.Models
         [Display(Name = "Sản phẩm")]
         public virtual Product Product { get; set; }
 
+        [Display(Name = "Người bình luận")]
+        public virtual string CommentUser { get; set; }
+
         [Display(Name = "Nội dung")]
         public virtual string Content { get; set; }
 

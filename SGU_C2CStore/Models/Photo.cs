@@ -4,6 +4,8 @@ namespace SGU_C2CStore.Models
 {
     public class Photo
     {
+        public virtual int PhotoId { get; set; }
+
         [Display(Name = "Mã sản phẩm")]
         public virtual int ProductId { get; set; }
 
