@@ -7,6 +7,6 @@ namespace SGU_C2CStore.Models
 {
     public enum AutionStatus
     {
-        PENDING_APPROVAL, OPENED, CLOSED 
+        Pending, Opened, Closed 
     }
 }

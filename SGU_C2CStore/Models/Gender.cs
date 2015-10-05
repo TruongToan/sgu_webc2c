@@ -7,6 +7,6 @@ namespace SGU_C2CStore.Models
 {
     public enum Gender
     {
-        MAN, WOMAN, OTHER
+        Nam, Nữ, Khác
     }
 }
