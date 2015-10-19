@@ -48,9 +48,9 @@ namespace SGU_C2CStore.Models
             modelBuilder.Entity<Category>().HasMany(e => e.Products).WithRequired().HasForeignKey(e => e.CategoryId);
 
             modelBuilder.Entity<Order>().HasMany(e => e.OrderDetails).WithRequired().HasForeignKey(e => e.OrderId);
+            modelBuilder.Entity<OrderDetail>().HasRequired(e => e.Product).WithMany().HasForeignKey(e => e.ProductId);
             modelBuilder.Entity<ApplicationUser>().HasMany(e => e.Orders).WithRequired().HasForeignKey(e => e.UserId);
             modelBuilder.Entity<ApplicationUser>().HasMany(e => e.Product).WithRequired().HasForeignKey(e => e.UserId);
-            modelBuilder.Entity<ApplicationUser>().HasMany(e => e.Orders).WithRequired().HasForeignKey(e => e.UserId);
 
             base.OnModelCreating(modelBuilder);
         }
