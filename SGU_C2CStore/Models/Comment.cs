@@ -9,7 +9,7 @@ namespace SGU_C2CStore.Models
     public class Comment
     {
         [Display(Name = "Tên loại")]
-        public virtual int CommentId { get; set; }
+        public virtual int Id { get; set; }
 
         [Display(Name = "Sản phẩm")]
         public virtual int ProductId { get; set; }
@@ -18,7 +18,10 @@ namespace SGU_C2CStore.Models
         public virtual Product Product { get; set; }
 
         [Display(Name = "Người bình luận")]
-        public virtual string CommentUser { get; set; }
+        public virtual string CommentUserId { get; set; }
+
+        [Display(Name = "Người bình luận")]
+        public virtual ApplicationUser CommentUser { get; set; }
 
         [Display(Name = "Nội dung")]
         public virtual string Content { get; set; }

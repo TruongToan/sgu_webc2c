@@ -9,7 +9,7 @@ namespace SGU_C2CStore.Models
     public class Order
     {
         [Display(Name = "Mã hóa đơn")]
-        public virtual int OrderId { get; set; }
+        public virtual int Id { get; set; }
         
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 

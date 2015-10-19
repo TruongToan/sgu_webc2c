@@ -9,13 +9,13 @@ namespace SGU_C2CStore.Models
     public class Product
     {
         [Display(Name = "Mã sản phẩm")]
-        public virtual int ProductId { get; set; }
-
-        [Display(Name = "Mã loại")]
-        public virtual int CategoryId { get; set; }
+        public virtual int Id { get; set; }
 
         [Display(Name = "Tên sản phẩm")]
         public virtual string Name { get; set; }
+
+        [Display(Name = "Loại")]
+        public virtual int CategoryId { get; set; }
 
         [Display(Name = "Loại")]
         public virtual Category Category { get; set; }
@@ -26,6 +26,12 @@ namespace SGU_C2CStore.Models
         [Display(Name = "Mô tả")]
         [DataType(DataType.MultilineText)]
         public virtual string Description { get; set; }
+
+        [Display(Name = "Người đăng")]
+        public virtual string UserId { get; set; }
+
+        [Display(Name = "Người đăng")]
+        public virtual ApplicationUser User { get; set; }
 
         [Display(Name = "Danh mục ảnh")]
         public virtual ICollection<Photo> Photos { get; set; }
