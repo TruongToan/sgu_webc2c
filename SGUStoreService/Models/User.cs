@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SGUStoreService.Data.Models
+namespace SGUStoreService.Models
 {
     public class User
     {

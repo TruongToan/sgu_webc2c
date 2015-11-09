@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SGUStoreService.Data.Models
+namespace SGUStoreService.Models
 {
     public class Comment
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace SGUStoreService.Data.Models
+namespace SGUStoreService.Models
 {
     public class Order
     {

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGU_C2CStore", "SGU_C2CStor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGUStoreService", "SGUStoreService\SGUStoreService.csproj", "{0B5D9F6D-84B7-4CDD-B235-0FE0A821AA74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGUStoreService.Data", "SGUStoreService.Data\SGUStoreService.Data.csproj", "{298F1343-C923-44D1-A289-F7740321A364}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{0B5D9F6D-84B7-4CDD-B235-0FE0A821AA74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B5D9F6D-84B7-4CDD-B235-0FE0A821AA74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B5D9F6D-84B7-4CDD-B235-0FE0A821AA74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{298F1343-C923-44D1-A289-F7740321A364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{298F1343-C923-44D1-A289-F7740321A364}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{298F1343-C923-44D1-A289-F7740321A364}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{298F1343-C923-44D1-A289-F7740321A364}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

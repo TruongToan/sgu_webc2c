@@ -1,4 +1,4 @@
-﻿using SGUStoreService.Data.Models;
+﻿using SGUStoreService.Models;
 using System.Data.Entity;
 
 namespace SGUStoreService.DAL

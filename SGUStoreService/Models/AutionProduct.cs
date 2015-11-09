@@ -1,4 +1,4 @@
-﻿namespace SGUStoreService.Data.Models
+﻿namespace SGUStoreService.Models
 {
     public class AutionProduct : Product
     {
