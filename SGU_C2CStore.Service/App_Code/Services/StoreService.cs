@@ -114,7 +114,7 @@ namespace SGU_C2CStore.Service
             p.Description = product.Description;
             p.Category = product.Category;
             p.Price = product.Price;
-            p.Photos = product.Photos;
+            p.PhotoUrl = product.PhotoUrl;
             p.Comments = product.Comments;
 
             return p;
@@ -133,6 +133,58 @@ namespace SGU_C2CStore.Service
                 result.Add(TranslateEntityProduct(product));
             }
             return result;
+        }
+
+        /// <summary>
+        /// Get all products of user
+        /// </summary>
+        /// <param name="UserId">User Id</param>
+        /// <returns></returns>
+        public List<Product> GetUserProducts(string UserId)
+        {
+            return TranslateListEntityProduct(Db.Products.Where(e => e.UserId.Equals(UserId)).ToList());
+        }
+
+        /// <summary>
+        /// Get top-price products
+        /// </summary>
+        /// <param name="limit">Limit items</param>
+        /// <returns></returns>
+        public List<Product> GetTopPriceProducts(int limit)
+        {
+            return TranslateListEntityProduct(Db.Products.OrderByDescending(e => e.Price).Take(limit).ToList());
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            Product p = Db.Products.FirstOrDefault(e => e.Id == product.Id);
+            if (p != null)
+            {
+                p.CopyValues(product);
+                Db.SaveChanges();
+            }
+            throw new FaultException("Product not found");
+        }
+
+        public void DeleteProduct(int Id)
+        {
+            Product p = Db.Products.FirstOrDefault(e => e.Id == Id);
+            if (p != null)
+            {
+                Db.Products.Remove(p);
+                Db.SaveChanges();
+            }
+            throw new FaultException("Product not found");
+        }
+
+        /// <summary>
+        /// Comment product
+        /// </summary>
+        /// <param name="comment">Comment</param>
+        public void Comment(Comment comment)
+        {
+            Db.Comments.Add(comment);
+            Db.SaveChanges();
         }
 
         #endregion

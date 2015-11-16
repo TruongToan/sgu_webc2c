@@ -20,8 +20,6 @@ namespace SGU_C2CStore.Service.DAL
             modelBuilder.Entity<Comment>().HasKey(e => e.Id);
             modelBuilder.Entity<Order>().HasKey(e => e.Id);
             modelBuilder.Entity<OrderDetail>().HasKey(e => e.Id);
-            modelBuilder.Entity<Photo>().HasKey(e => e.Id);
-            modelBuilder.Entity<Product>().HasMany(e => e.Photos).WithRequired().HasForeignKey(e => e.ProductId);
             modelBuilder.Entity<Product>().HasMany(e => e.Comments).WithRequired().HasForeignKey(e => e.ProductId);
             modelBuilder.Entity<Category>().HasMany(e => e.Products).WithRequired().HasForeignKey(e => e.CategoryId);
 
@@ -42,6 +40,5 @@ namespace SGU_C2CStore.Service.DAL
         public DbSet<User> Users { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Photo> Photos { get; set; }
     }
 }

@@ -6,47 +6,44 @@ namespace SGU_C2CStore.Service.Models
     [DataContract]
     public class Product
     {
-        private int id;
-        private string name;
-        private int price;
-        private string description;
+        [DataMember]
+        public virtual int Id { get; set; }
 
         [DataMember]
-        public int Id {
-            get { return id; }
-            set { id = value; }
-        }
-
-        [DataMember]
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public virtual string Name { get; set; }
 
         public virtual int CategoryId { get; set; }
 
-        //[DataMember]
+        [DataMember]
         public virtual Category Category { get; set; }
 
         [DataMember]
-        public int Price
-        {
-            get { return price; }
-            set { price = value; }
-        }
+        public virtual int Price { get; set; }
 
         [DataMember]
-        public string Description
-        {
-            get { return description; }
-            set { description = value; }
-        }
+        public virtual string Description { get; set; }
+
+        [DataMember]
+        public virtual string PhotoUrl { get; set; }
+
+        [DataMember]
+        public virtual bool IsApproval { get; set; }
 
         public virtual string UserId { get; set; }
         public virtual User User { get; set; }
 
-        public virtual ICollection<Photo> Photos { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+
+
+        public void CopyValues(Product p)
+        {
+            Name = p.Name;
+            CategoryId = p.CategoryId;
+            Price = p.Price;
+            Description = p.Description;
+            IsApproval = p.IsApproval;
+            UserId = p.UserId;
+            PhotoUrl = p.PhotoUrl;
+        }
     }
 }

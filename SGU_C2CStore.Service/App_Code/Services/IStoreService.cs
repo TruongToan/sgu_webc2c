@@ -6,7 +6,7 @@ namespace SGU_C2CStore.Service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IProductService" in both code and config file together.
     [ServiceContract]
-    public interface IStoreService
+    public interface IStoreService : IBaseProductService
     {
         [OperationContract]
         string GetServiceInfo();
@@ -32,8 +32,19 @@ namespace SGU_C2CStore.Service
         [OperationContract]
         List<Product> GetProductsByPrice(int From, int To);
 
-        Product TranslateEntityProduct(Product product);
+        [OperationContract]
+        List<Product> GetUserProducts(string UserId);
 
-        List<Product> TranslateListEntityProduct(List<Product> products);
+        [OperationContract]
+        List<Product> GetTopPriceProducts(int limit);
+
+        [OperationContract]
+        void UpdateProduct(Product product);
+
+        [OperationContract]
+        void DeleteProduct(int Id);
+
+        [OperationContract]
+        void Comment(Comment comment);
     }
 }
