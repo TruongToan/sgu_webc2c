@@ -27,6 +27,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SGU_C2CStore.Service", "SGU
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGU_C2CStore.Services", "SGU_C2CStore.Services\SGU_C2CStore.Services.csproj", "{8A606251-A9B7-4127-B0BA-C4E1204F5854}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{4A39A71C-6EB1-4F25-90C4-FB0C6E84BE14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A39A71C-6EB1-4F25-90C4-FB0C6E84BE14}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{4A39A71C-6EB1-4F25-90C4-FB0C6E84BE14}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8A606251-A9B7-4127-B0BA-C4E1204F5854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A606251-A9B7-4127-B0BA-C4E1204F5854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A606251-A9B7-4127-B0BA-C4E1204F5854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A606251-A9B7-4127-B0BA-C4E1204F5854}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
