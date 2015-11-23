@@ -39,6 +39,9 @@ namespace SGU_C2CStore.Services
         List<Product> GetTopPriceProducts(int limit);
 
         [OperationContract]
+        void PostProduct(Product product);
+
+        [OperationContract]
         void UpdateProduct(Product product);
 
         [OperationContract]

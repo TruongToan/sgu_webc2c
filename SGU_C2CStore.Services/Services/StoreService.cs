@@ -187,6 +187,16 @@ namespace SGU_C2CStore.Services
             Db.SaveChanges();
         }
 
+        /// <summary>
+        /// Post product to store to sell
+        /// </summary>
+        /// <param name="product">Your product</param>
+        public void PostProduct(Product product)
+        {
+            Db.Products.Add(product);
+            Db.SaveChanges();
+        }
+
         #endregion
 
         #region Product Post Services
