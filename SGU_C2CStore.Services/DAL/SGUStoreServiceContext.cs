@@ -20,7 +20,7 @@ namespace SGU_C2CStore.Services.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // IMPORTANT
-            modelBuilder.Entity<User>().HasKey(e => e.Id);
+            modelBuilder.Entity<ApplicationUser>().HasKey(e => e.Id);
             modelBuilder.Entity<Product>().HasKey(e => e.Id);
             modelBuilder.Entity<Category>().HasKey(e => e.Id);
             modelBuilder.Entity<Comment>().HasKey(e => e.Id);
@@ -37,8 +37,8 @@ namespace SGU_C2CStore.Services.DAL
             modelBuilder.Entity<Product>().HasRequired(e => e.Category).WithMany().HasForeignKey(e => e.CategoryId);
             modelBuilder.Entity<Order>().HasMany(e => e.OrderDetails).WithRequired().HasForeignKey(e => e.OrderId);
             modelBuilder.Entity<OrderDetail>().HasRequired(e => e.Product).WithMany().HasForeignKey(e => e.ProductId);
-            modelBuilder.Entity<User>().HasMany(e => e.Orders).WithRequired().HasForeignKey(e => e.UserId);
-            modelBuilder.Entity<User>().HasMany(e => e.Product).WithRequired().HasForeignKey(e => e.UserId);
+            modelBuilder.Entity<ApplicationUser>().HasMany(e => e.Orders).WithRequired().HasForeignKey(e => e.BuyerId);
+            modelBuilder.Entity<ApplicationUser>().HasMany(e => e.OwnProducts).WithRequired().HasForeignKey(e => e.OwnerId).WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);
         }
@@ -49,7 +49,7 @@ namespace SGU_C2CStore.Services.DAL
         public DbSet<AutionByTimeProduct> AutionByTimeProducts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
     }

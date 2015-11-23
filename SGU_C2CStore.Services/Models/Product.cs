@@ -30,9 +30,9 @@ namespace SGU_C2CStore.Services.Models
         [DataMember]
         public virtual bool IsApproval { get; set; }
 
-        public virtual string UserId { get; set; }
+        public virtual string OwnerId { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual ApplicationUser Owner { get; set; }
 
         [DataMember]
         public virtual DateTime CreateTime { get; set; }
@@ -42,6 +42,8 @@ namespace SGU_C2CStore.Services.Models
 
         public virtual ICollection<Comment> Comments { get; set; }
 
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
 
         public void CopyValues(Product p)
         {
@@ -50,7 +52,7 @@ namespace SGU_C2CStore.Services.Models
             Price = p.Price;
             Description = p.Description;
             IsApproval = p.IsApproval;
-            UserId = p.UserId;
+            Owner = p.Owner;
             PhotoUrl = p.PhotoUrl;
         }
     }

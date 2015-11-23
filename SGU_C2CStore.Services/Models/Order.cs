@@ -13,7 +13,7 @@ namespace SGU_C2CStore.Services.Models
         public virtual DateTime OrderTime { get; set; }
         public virtual DateTime ShipTime { get; set; }
         public virtual string ShipAddress { get; set; }
-        public virtual string UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual string BuyerId { get; set; }
+        public virtual ApplicationUser Buyer { get; set; }
     }
 }
