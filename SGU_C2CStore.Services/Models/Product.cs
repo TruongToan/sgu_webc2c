@@ -38,7 +38,7 @@ namespace SGU_C2CStore.Services.Models
         public void CopyValues(Product p)
         {
             Name = p.Name;
-            CategoryId = p.CategoryId;
+            Category = p.Category;
             Price = p.Price;
             Description = p.Description;
             IsApproval = p.IsApproval;

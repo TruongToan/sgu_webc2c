@@ -34,6 +34,7 @@ namespace SGU_C2CStore.Services.DAL
             modelBuilder.Entity<IdentityRole>().HasKey(e => e.Id);
             modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
 
+            modelBuilder.Entity<Product>().HasRequired(e => e.Category).WithMany().HasForeignKey(e => e.CategoryId);
             modelBuilder.Entity<Order>().HasMany(e => e.OrderDetails).WithRequired().HasForeignKey(e => e.OrderId);
             modelBuilder.Entity<OrderDetail>().HasRequired(e => e.Product).WithMany().HasForeignKey(e => e.ProductId);
             modelBuilder.Entity<User>().HasMany(e => e.Orders).WithRequired().HasForeignKey(e => e.UserId);
