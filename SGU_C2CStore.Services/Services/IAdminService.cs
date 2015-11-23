@@ -5,21 +5,24 @@ using System.Linq;
 using System.ServiceModel;
 using System.Web;
 
-[ServiceContract]
-public interface IAdminService : IBaseProductService
+namespace SGU_C2CStore.Services
 {
-    [OperationContract]
-    string GetServiceInfo();
+    [ServiceContract]
+    public interface IAdminService : IBaseProductService
+    {
+        [OperationContract]
+        string GetServiceInfo();
 
-    [OperationContract]
-    List<Product> GetAllProducts();
+        [OperationContract]
+        List<Product> GetAllProducts();
 
-    [OperationContract]
-    List<Product> GetPendingProducts();
+        [OperationContract]
+        List<Product> GetPendingProducts();
 
-    [OperationContract]
-    void ApprovalProduct(int Id);
+        [OperationContract]
+        void ApprovalProduct(int Id);
 
-    [OperationContract]
-    void DeleteProduct(int Id);
+        [OperationContract]
+        void DeleteProduct(int Id);
+    }
 }

@@ -5,12 +5,15 @@ using System.Linq;
 using System.ServiceModel;
 using System.Web;
 
-[ServiceContract]
-public interface IBaseProductService
+namespace SGU_C2CStore.Services
 {
-    [OperationContract]
-    Product TranslateEntityProduct(Product product);
+    [ServiceContract]
+    public interface IBaseProductService
+    {
+        [OperationContract]
+        Product TranslateEntityProduct(Product product);
 
-    [OperationContract]
-    List<Product> TranslateListEntityProduct(List<Product> products);
+        [OperationContract]
+        List<Product> TranslateListEntityProduct(List<Product> products);
+    }
 }
