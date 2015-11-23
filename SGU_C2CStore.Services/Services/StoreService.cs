@@ -55,7 +55,7 @@ namespace SGU_C2CStore.Services
         /// <returns></returns>
         public List<Product> GetProductsFromIndex(int index, int count)
         {
-            return TranslateListEntityProduct(Db.Products.Skip(index).Take(count).ToList());
+            return TranslateListEntityProduct(Db.Products.OrderByDescending(e => e.CreateTime).Skip(index).Take(count).ToList());
         }
 
         /// <summary>

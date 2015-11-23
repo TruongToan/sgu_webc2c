@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace SGU_C2CStore.Services.Models
@@ -30,7 +31,14 @@ namespace SGU_C2CStore.Services.Models
         public virtual bool IsApproval { get; set; }
 
         public virtual string UserId { get; set; }
+
         public virtual User User { get; set; }
+
+        [DataMember]
+        public virtual DateTime CreateTime { get; set; }
+
+        [DataMember]
+        public virtual DateTime UpdateTime { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
 
