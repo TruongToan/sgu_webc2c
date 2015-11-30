@@ -14,7 +14,6 @@ namespace SGU_C2CStore
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new SGU_StoreDbInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

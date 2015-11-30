@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.Collections.Generic;
+using Microsoft.AspNet.Identity.EntityFramework;
 using SGU_C2CStore.Models;
 
 namespace SGU_C2CStore.Controllers
@@ -73,20 +75,42 @@ namespace SGU_C2CStore.Controllers
                 return View(model);
             }
 
+            if (returnUrl == null)
+            {
+                returnUrl = Url.Action("Index", "Home", new { });
+            }
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var user = await UserManager.FindByEmailAsync(model.Email);
+
+            var result = SignInStatus.Failure;
+
+            if (user != null)
+            {
+                if (await UserManager.IsEmailConfirmedAsync(user.Id))
+                {
+                    result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Vui lòng xác nhận tài khoản");
+                    result = SignInStatus.RequiresVerification;
+                }
+
+            }
+
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return Redirect(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    return View(model);
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Email hoặc mật khẩu không đúng.");
                     return View(model);
             }
         }
@@ -151,25 +175,40 @@ namespace SGU_C2CStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FullName = model.FullName, Gender = model.Gender, Birthday = model.Birthday, Address = model.Address, Score = 0, PhoneNumber = model.PhoneNumber };
+                var user = new ApplicationUser {
+                    UserName = model.UserName,
+                    PhoneNumber = model.PhoneNumber,
+                    Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+                    ApplicationUserManager userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                    await userManager.AddToRoleAsync(user.Id, "Customer");
+
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    string msg = "Bạn đã đăng ký tài khoản tại SGURestaurant<br/>Vui lòng hoàn tất việc đăng ký của bạn <a href=\"" + callbackUrl + "\">tại đây</a>";
+                    await UserManager.SendEmailAsync(user.Id, "SGURestaurant - Xác nhận đăng ký", msg);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Confirm", new { Email = user.Email });
                 }
                 AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult Confirm(string Email)
+        {
+            ViewBag.Email = Email;
+            return View();
         }
 
         //
@@ -202,7 +241,7 @@ namespace SGU_C2CStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindByNameAsync(model.Email);
+                var user = await UserManager.FindByEmailAsync(model.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
@@ -211,10 +250,10 @@ namespace SGU_C2CStore.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                await UserManager.SendEmailAsync(user.Id, "Quên mật khẩu", "Để thay đổi mật khẩu vui lòng truy cập <a href=\"" + callbackUrl + "\">tại đây</a>");
+                return RedirectToAction("ForgotPasswordConfirmation");
             }
 
             // If we got this far, something failed, redisplay form
@@ -248,7 +287,7 @@ namespace SGU_C2CStore.Controllers
             {
                 return View(model);
             }
-            var user = await UserManager.FindByNameAsync(model.Email);
+            var user = await UserManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
                 // Don't reveal that the user does not exist
@@ -367,7 +406,7 @@ namespace SGU_C2CStore.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

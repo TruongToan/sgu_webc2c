@@ -7,8 +7,18 @@ namespace SGU_C2CStore.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
+        [Display(Name = "Tên tài khoản")]
+        public string UserName { get; set; }
+
+        [Required(ErrorMessage = "{0} không hợp lệ")]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "{0} là bắt buộc")]
+        [Display(Name = "Số ĐT")]
+        [StringLength(50, ErrorMessage = "{0} không được quá {1} ký tự")]
+        [Phone(ErrorMessage = "{0} không hợp lệ")]
+        public string PhoneNumber { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -49,12 +59,12 @@ namespace SGU_C2CStore.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "{0} là bắt buộc")]
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} là bắt buộc")]
         [DataType(DataType.Password)]
         [Display(Name = "Mật khẩu")]
         public string Password { get; set; }
@@ -65,12 +75,12 @@ namespace SGU_C2CStore.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "{0} là bắt buộc")]
         [EmailAddress(ErrorMessage = "{0} không hợp lệ")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} là bắt buộc")]
         [StringLength(100, ErrorMessage = "{0} tối thiểu {2} ký tự", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Mật khẩu")]
@@ -81,28 +91,14 @@ namespace SGU_C2CStore.Models
         [Compare("Password", ErrorMessage = "{0} không đúng")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} là bắt buộc")]
         [Display(Name = "Họ tên")]
         [StringLength(50, ErrorMessage = "{0} không được quá {1} ký tự")]
-        public string FullName { get; set; }
+        public string UserName { get; set; }
 
-        [Required]
-        [Display(Name = "Giới tính")]
-        public Gender Gender { get; set; }
-
-        [Required]
-        [Display(Name = "Ngày sinh")]
-        [DataType(DataType.Date)]
-        public DateTime Birthday { get; set; }
-
-        [Required]
-        [Display(Name = "Địa chỉ")]
-        [StringLength(200, ErrorMessage = "{0} không được quá {1} ký tự")]
-        [DataType(DataType.MultilineText)]
-        public string Address { get; set; }
-
-        [Required]
-        [Display(Name = "Số điện thoại")]
+        [Required(ErrorMessage = "{0} là bắt buộc")]
+        [Display(Name = "Số ĐT")]
+        [StringLength(50, ErrorMessage = "{0} không được quá {1} ký tự")]
         [Phone(ErrorMessage = "{0} không hợp lệ")]
         public string PhoneNumber { get; set; }
     }

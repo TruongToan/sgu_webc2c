@@ -1,31 +1,301 @@
-﻿@{
+﻿@*@using SGURestaurant.Models
+@model IEnumerable<Meal>*@
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"
+        type="text/javascript"></script>
+<script src="~/Scripts/nouislider.min.js"
+        type="text/javascript"></script>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<script type="text/javascript">
+    $(function () {
+        // Document.ready -> link up remove event handler
+        $(".add-to-cart").click(function () {
+            // Get the id from the link
+            var recordToDelete = $(this).attr("data-id");
+            if (recordToDelete != '') {
+                // Perform the ajax post
+                $.post("/ShoppingCart/AddToCart", {"id": recordToDelete },
+                    function (data) {
+                        // Successful requests get here
+                        // Update the page elements
+                        $('#shopping-cart').text("Giỏ hàng (" + data + ")");
+                    });
+            }
+        });
+    });
+</script>
+
+
+<br />
+
+<h3>Danh sách các sản phẩm</h3>
+
+@*<div class="jumbotron">
+    <div class="row carousel-holder">
+
+        <div class="row">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img class="slide-image" src="~/Content/Images/banner2.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img class="slide-image" src="~/Content/Images/banner2.png" alt="">
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    
+</div>*@
+
+@*<div class="row">
+
+    <div class="col-md-3">
+        <p class="lead">Thực đơn</p>
+        <div class="list-group">
+            @{ 
+                    var menuGroups = ViewData["groups"] as List<MealType>;
+                menuGroups.Insert(0, new MealType() { Id = 0, Name = "Tất cả" });
+            }
+
+            @foreach (MealType type in menuGroups)
+            {
+                using (Html.BeginForm("Index/" + (type.Id != 0 ? type.Name : string.Empty), "Home"))
+                {
+                    if ((ViewBag.Type == string.Empty && type.Id == 0) || type.Name.Equals(ViewBag.Type))
+                    {
+                        <button type="submit" class="list-group-item active nav nav-pills nav-justified">@type.Name</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="list-group-item nav nav-pills nav-justified">@type.Name</button>
+                    }
+                }
+            }
+
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+    <div class="col-md-9">
+
+        <div class="col-md-12 navbar-right">
+            <div class="row">
+                @using (Html.BeginForm(null, null, FormMethod.Get, new { @class = "form-group" }))
+                {
+                    <div class="input-group" id="adv-search">
+                        <input name="keyword" type="text" class="form-control" placeholder="Tìm kiếm món ăn" />
+                        <div class="input-group-btn">
+                            <div class="btn-group" role="group">
+                                <div>
+                                    <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#advs">
+                                        <span class="caret"></span>
+                                    </button>
+                                </div>
+                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @using (Html.BeginForm(null, null, FormMethod.Get, new { @class = "form-group" }))
+                {
+                    <div id="advs" class="collapse">
+                        <div class="form-group">
+                            <label for="filter">Tìm kiếm theo</label><br />
+                            <div class="col-md-4">
+                                <select class="form-control" name="group">
+                                    <option value="all" selected>Tất cả</option>
+                                    <option value="name">Tên</option>
+                                    <option value="indredients">Nguyên liệu chính</option>
+                                </select>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" name="keyword" placeholder="Từ khóa" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="filter">Giá</label>
+                            <br />
+                            Từ
+                            <strong id="input-select1"></strong> <strong>000</strong>
+                            <input type="hidden" id="input1" name="price1" value="0" />
+                            -->
+                            <strong id="input-select2"></strong> <strong>000</strong>
+                            <input type="hidden" id="input2" name="price2" value="1000" />
+                            <div id="html5" class="noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary navbar-right">Tìm kiếm</button>
+                    </div>
+                }
+            </div>
+        </div>
+
+        @{ 
+            var sale = 0;
+        }
+        
+
+        <div class="row">
+            @{
+                var PageSize = 9;
+                var rate = 0;
+                var CurrentPageString = Request.QueryString["page"];
+                var CurrentPage = CurrentPageString == "" || CurrentPageString == null || CurrentPageString == "0" ? 1 : int.Parse(CurrentPageString);
+
+                for (int i = PageSize * (CurrentPage - 1); i < PageSize * CurrentPage && i < Model.Count(); i++)
+                {
+                    var meal = Model.ElementAt(i);
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail float-container">
+                            <img src="@meal.ImageUrl" class="" alt="">
+                            @{
+                                sale = (int)((1 - meal.Price * 1.0f / meal.OriginPrice) * 100);
+                            }
+                            @if (sale > 0)
+                            {
+                                <div class="col-sm-1 navbar-right btn-danger float-text">-@((int)((1 - meal.Price * 1.0f / meal.OriginPrice) * 100))%</div>
+                            }
+                            <div class="caption">
+                                <h4 class="pull-right">@(meal.Price.ToString("0,000"))</h4>
+                                <h4>
+                                    @Html.ActionLink(@meal.Name, "Info", new { id = meal.Id })
+                                </h4>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">@meal.Reviews.Count lượt đánh giá</p>
+                                <p>
+                                    @{ 
+                                        rate = 0;
+                                        if (meal.Reviews.Count() > 0)
+                                        {
+                                            rate = (int)meal.Reviews.Average(e => e.Rate);
+                                        }
+                                    }
+                                    @for (var j = 0; j < rate; j++)
+                                    {
+                                        <span class="glyphicon glyphicon-star"></span>
+
+                                    }
+                                    @for (var j = 0; j < 5 - rate; j++)
+                                    {
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+
+                                    }
+                                </p>
+                            </div>
+
+                            <div class="pager">
+                                @using (Html.BeginForm("Info/" + meal.Id, "Home"))
+                                {
+                                    <button class="btn btn-default" type="submit">Chi tiết</button>
+                                    <button class="btn btn-primary add-to-cart" type="button" data-id="@meal.Id">Thêm vào giỏ</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+                }
+
+
+        </div>
+        @if (Model.Count() > 0)
+        {
+            <nav class="navbar-right">
+                <ul class="pagination">
+                    @{
+                        var Size = Model.Count();
+                        var PageCout = (int)Math.Ceiling(Size * 1.0f / PageSize);
+                        var Prev = (CurrentPage - 1) < 1 ? 1 : CurrentPage - 1;
+                        var Next = (CurrentPage + 1) > PageCout ? PageCout : CurrentPage + 1;
+
+                        if (CurrentPage == 1)
+                        {
+                            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                        }
+                        else
+                        {
+                            <li><a href="?page=@Prev " aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                        }
+
+                        for (var i = 1; i <= PageCout; i++)
+                        {
+                            if (i == CurrentPage)
+                            {
+                                <li class="active"><a href="#">@i<span class="sr-only">(current)</span></a></li>
+                            }
+                            else
+                            {
+                                <li><a href="?page=@i">@i</a></li>
+                            }
+                        }
+
+                        if (CurrentPage == PageCout)
+                        {
+                            <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        }
+                        else
+                        {
+                            <li><a href="?page=@Next" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        }
+                    }
+                </ul>
+            </nav>
+            }
+            else
+            {
+                <div>
+                    <h3>Không tìm thấy món ăn nào!</h3>
+                    <p>Vui lòng thử lại từ khóa khác</p>
+                </div>
+            }
+
     </div>
-</div>
+
+</div>*@
+
+<script>
+    var select1 = document.getElementById('input-select1');
+    var select2 = document.getElementById('input-select2');
+    var input1 = document.getElementById('input1');
+    var input2 = document.getElementById('input2');
+
+    var html5Slider = document.getElementById('html5');
+
+    noUiSlider.create(html5Slider, {
+    start: [ 0, 10 ],
+    connect: true,
+    range: {
+	    'min': 0,
+	    'max': 10
+	    }
+    });
+</script>
+<script>
+    html5Slider.noUiSlider.on('update', function( values, handle ) {
+
+	    var value = values[handle];
+
+	    if (handle) {
+	        select2.innerHTML = Math.round(value) * 100;
+	        input2.value = Math.round(value) * 100;
+	    } else {
+	        select1.innerHTML = Math.round(value) * 100;
+	        input1.value = Math.round(value) * 100;
+	    }
+    });
+</script>

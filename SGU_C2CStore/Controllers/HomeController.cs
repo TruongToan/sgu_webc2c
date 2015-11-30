@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGU_C2CStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,11 +21,41 @@ namespace SGU_C2CStore.Controllers
             return View();
         }
 
+        public ActionResult Hot()
+        {
+            return View();
+        }
+
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            var model = new ContactModel();
+            return View(model);
+        }
 
-            return View();
+        [HttpPost]
+        public ActionResult Contact(ContactModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string smtpUserName = "thlogn@gmail.com";
+                string smtpPassword = "dvhmmbnspexgspsr";
+                string smtpHost = "smtp.gmail.com";
+                int smtpPort = 587;
+
+                string emailTo = "thanhlong.itsgu@gmail.com";
+                string subject = model.Subject;
+                string body = string.Format("Bạn vừa nhận được liên hệ từ: <b>{0}</b><br/>Email: {1}<br/>Nội dung: </br>{2}",
+                    model.UserName, model.Email, model.Message);
+
+                EmailService service = new EmailService();
+
+                bool kq = service.Send(smtpUserName, smtpPassword, smtpHost, smtpPort,
+                    emailTo, subject, body);
+
+                if (kq) ModelState.AddModelError("", "Cảm ơn bạn đã liên hệ với chúng tôi.");
+                else ModelState.AddModelError("", "Gửi tin nhắn thất bại, vui lòng thử lại.");
+            }
+            return View(model);
         }
     }
 }
