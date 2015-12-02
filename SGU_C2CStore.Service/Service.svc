@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="SGU_C2CStore.Service.StoreService" CodeBehind="~/App_Code/Services/StoreService.cs" %>
