@@ -142,7 +142,7 @@ namespace SGU_C2CStore.Services
         /// <returns></returns>
         public List<Product> GetUserProducts(string UserId)
         {
-            return TranslateListEntityProduct(Db.Products.Where(e => e.OwnerId.Equals(UserId)).ToList());
+            return TranslateListEntityProduct(Db.Products.Where(e => e.Owner.Id.Equals(UserId)).ToList());
         }
 
         /// <summary>
