@@ -9,6 +9,6 @@ namespace SGU_C2CStore.Services.Models
         Pending,
         Opened,
         Closed,
-        Canceled
+        Cancelled
     }
 }

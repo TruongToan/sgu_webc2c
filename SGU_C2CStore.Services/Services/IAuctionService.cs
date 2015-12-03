@@ -13,42 +13,42 @@ namespace SGU_C2CStore.Services
     {
         /* Own auctions */
         [OperationContract]
-        void AddNewAution(string UserEmail, AuctionProduct item);
+        void AddNewAuction(string userEmail, AuctionProduct item);
         [OperationContract]
-        void StartAuction(string UserEmail, int AuctionId, DateTime StartTime, DateTime EndTime);
+        void StartAuction(string userEmail, int auctionId, DateTime startTime, DateTime endTime);
         [OperationContract]
-        void StopAuction(string UserEmail, int AuctionId);
+        void StopAuction(string userEmail, int auctionId);
         [OperationContract]
-        void CancelAuction(string UserEmail, int AuctionId);
+        void CancelAuction(string userEmail, int auctionId);
         [OperationContract]
-        User GetWinner(int AuctionId);
+        User GetWinner(int auctionId);
         [OperationContract]
-        List<AuctionProduct> GetMyAuctions(string UserEmail);
+        List<AuctionProduct> GetMyAuctions(string userEmail);
         [OperationContract]
-        List<Bid> GetBidsOfAuction(string UserEmail, int AutionId);
+        List<Bid> GetBidsOfAuction(string userEmail, int auctionId);
         [OperationContract]
-        List<AuctionProduct> GetMyAuctionsWithStatus(string UserEmail, AuctionStatus status);
+        List<AuctionProduct> GetMyAuctionsWithStatus(string userEmail, AuctionStatus status);
 
         /* Contact */
         [OperationContract]
-        void ContactToWinner(string UserEmail, int AuctionId, string Message);
+        void ContactToWinner(string userEmail, int auctionId, string message);
         [OperationContract]
-        void ContactToOwner(string UserEmail, int AuctionId, string Message);
+        void ContactToOwner(string userEmail, int auctionId, string message);
 
         /* Other users auctions */
         [OperationContract]
         bool Bid(Bid bid);
         [OperationContract]
-        int GetBestBid(int itemId);
+        int GetBestBid(int auctionId);
         [OperationContract]
         List<AuctionProduct> GetOpenAuctions();
         [OperationContract]
-        List<AuctionProduct> GetOpenAuctionsByUser(string UserEmail);
+        List<AuctionProduct> GetOpenAuctionsByUser(string userEmail);
         [OperationContract]
-        List<AuctionProduct> GetMyWonAuctionsHistory(string UserEmail);
+        List<AuctionProduct> GetMyWonAuctionsHistory(string userEmail);
         [OperationContract]
-        List<Bid> GetMyBidHistory(string UserEmail);
+        List<Bid> GetMyBidHistory(string userEmail);
         [OperationContract]
-        List<Bid> GetMyBidHistoryByItem(string ItemId);
+        List<Bid> GetMyBidHistoryByItem(int auctionId);
     }
 }
