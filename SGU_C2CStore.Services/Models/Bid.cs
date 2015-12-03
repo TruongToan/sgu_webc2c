@@ -21,6 +21,9 @@ namespace SGU_C2CStore.Services.Models
         [DataMember]
         public virtual int Price { get; set; }
 
+        [DataMember]
+        public virtual DateTime Time { get; set; }
+
         public void CopyValues(Bid bid)
         {
             this.Id = bid.Id;
