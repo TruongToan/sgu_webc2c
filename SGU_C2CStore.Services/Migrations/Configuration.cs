@@ -16,7 +16,7 @@ namespace SGU_C2CStore.Services.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(SGU_C2CStore.Services.DAL.SGUStoreServiceContext context)
+        protected override void Seed(SGUStoreServiceContext context)
         {
             context.Users.Add(new User() { Id = "admin", UserName = "Admin", Email = "admin@gmail.com" });
             context.SaveChanges();
@@ -34,7 +34,7 @@ namespace SGU_C2CStore.Services.Migrations
             User u = context.Users.FirstOrDefault();
             var Products = new List<Product>()
             {
-                new Product() {Name = "Product 0", Description = "A product 0", Price=10, CategoryId=1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now, Owner = u},
+                new Product() {Name = "Product 0", Description = "A product 0", Price=9, CategoryId=1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now, Owner = u},
                 new Product() {Name = "Product 1", Description = "A product 1", Price=10, CategoryId=1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now, Owner = u},
                 new Product() {Name = "Product 2", Description = "A product 2", Price=11, CategoryId=1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now, Owner = u},
                 new Product() {Name = "Product 3", Description = "A product 3", Price=12, CategoryId=2, CreateTime = DateTime.Now, UpdateTime = DateTime.Now, Owner = u},

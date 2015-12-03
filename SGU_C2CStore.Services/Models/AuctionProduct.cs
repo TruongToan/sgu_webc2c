@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace SGU_C2CStore.Services.Models
@@ -7,24 +8,25 @@ namespace SGU_C2CStore.Services.Models
     public class AuctionProduct : Product
     {
         [DataMember]
-        public virtual int CurrentPrice { get; set; }
+        public virtual DateTime StartTime { get; set; }
 
         [DataMember]
-        public virtual AutionStatus AutionStatus { get; set; }
-        
-        public virtual ICollection<User> Users { get; set; }
+        public virtual DateTime EndTime { get; set; }
+
+        [DataMember]
+        public virtual int BestBid { get; set; }
+
+        [DataMember]
+        public virtual AuctionStatus AutionStatus { get; set; }
 
         public void CopyValues(AuctionProduct p)
         {
             base.CopyValues(p);
-            this.CurrentPrice = p.CurrentPrice;
+            this.BestBid = p.BestBid;
+            this.StartTime = p.StartTime;
+            this.EndTime = p.EndTime;
+            this.BestBid = p.BestBid;
             this.AutionStatus = p.AutionStatus;
-            foreach (User u in p.Users)
-            {
-                User newUser = new User();
-                newUser.CopyValues(u);
-                this.Users.Add(newUser);
-            }
         }
     }
 }
