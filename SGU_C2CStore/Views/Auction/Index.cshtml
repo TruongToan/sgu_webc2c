@@ -1,0 +1,168 @@
+﻿@using SGU_C2CStore.Services.Models
+@model IEnumerable<Auction>
+
+@{
+    ViewBag.Title = "Đấu giá";
+}
+
+<br />
+
+<div class="row">
+    <div class="col-md-3">
+        <p class="lead">Danh mục</p>
+        <div class="list-group">
+            @{
+                var menuGroups = ViewData["groups"] as List<string>;
+                menuGroups.Insert(0, "Tất cả");
+            }
+
+            @foreach (string type in menuGroups)
+            {
+                using (Html.BeginForm("Index/" + (menuGroups.IndexOf(type) != 0 ? type : string.Empty), "Auction"))
+                {
+                    if ((ViewBag.Type == string.Empty && menuGroups.IndexOf(type) == 0) || type.Equals(ViewBag.Type))
+                    {
+                        <button type="submit" class="list-group-item active nav nav-pills nav-justified">@type</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="list-group-item nav nav-pills nav-justified">@type</button>
+                    }
+                }
+            }
+
+        </div>
+        <button class="btn btn-primary nav-justified">Đăng sản phẩm đấu giá</button>
+        <br />
+        <br />
+    </div>
+    <div class="col-md-9">
+
+        <div class="col-md-12 navbar-right">
+            <div class="row">
+                @using (Html.BeginForm(null, null, FormMethod.Get, new { @class = "form-group" }))
+                {
+                    <div class="col-sm-offset-6 col-md-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Nhập từ khóa tìm kiếm...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Tìm kiếm</button>
+                            </span>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Sản phẩm mới</a></li>
+            <li role="presentation"><a href="#">Sản phẩm được đấu giá nhiều nhất</a></li>
+            <li role="presentation"><a href="#">Sản phẩm giá cao nhất</a></li>
+        </ul>
+
+        <div class="row">
+            @{
+                var PageSize = 9;
+                var rate = 0;
+                var CurrentPageString = Request.QueryString["page"];
+                var CurrentPage = CurrentPageString == "" || CurrentPageString == null || CurrentPageString == "0" ? 1 : int.Parse(CurrentPageString);
+
+                for (int i = PageSize * (CurrentPage - 1); i < PageSize * CurrentPage && i < Model.Count(); i++)
+                {
+                    var meal = Model.ElementAt(i);
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail float-container">
+                            <img src="@meal.Item.PhotoUrl" class="" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">@(meal.Item.Price.ToString("0,000"))</h4>
+                                <h4>
+                                    @Html.ActionLink(@meal.Item.Name, "Info", new { id = meal.Id })
+                                </h4>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">0 lượt đấu giá</p>
+                                <p>
+                                    @{
+                                        rate = 0;
+                                    }
+                                    @for (var j = 0; j < rate; j++)
+                                    {
+                                        <span class="glyphicon glyphicon-star"></span>
+
+                                    }
+                                    @for (var j = 0; j < 5 - rate; j++)
+                                    {
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+
+                                    }
+                                </p>
+                            </div>
+
+                            <div class="pager">
+                                @using (Html.BeginForm("Info/" + meal.Id, "Home"))
+                                {
+                                    <button class="btn btn-default" type="submit">Chi tiết</button>
+                                        <button class="btn btn-primary add-to-cart" type="button" data-id="@meal.Id">Thêm vào giỏ</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                                        }
+            }
+
+
+        </div>
+        @if (Model.Count() > 0)
+            {
+            <nav class="navbar-right">
+                <ul class="pagination">
+                    @{
+                        var Size = Model.Count();
+                        var PageCout = (int)Math.Ceiling(Size * 1.0f / PageSize);
+                        var Prev = (CurrentPage - 1) < 1 ? 1 : CurrentPage - 1;
+                        var Next = (CurrentPage + 1) > PageCout ? PageCout : CurrentPage + 1;
+
+                        if (CurrentPage == 1)
+                        {
+                            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                        }
+                        else
+                        {
+                            <li><a href="?page=@Prev " aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                        }
+
+                        for (var i = 1; i <= PageCout; i++)
+                        {
+                            if (i == CurrentPage)
+                            {
+                                <li class="active"><a href="#">@i<span class="sr-only">(current)</span></a></li>
+                            }
+                            else
+                            {
+                                <li><a href="?page=@i">@i</a></li>
+                            }
+                        }
+
+                        if (CurrentPage == PageCout)
+                        {
+                            <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        }
+                        else
+                        {
+                            <li><a href="?page=@Next" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        }
+                    }
+                </ul>
+            </nav>
+                        }
+                        else
+                        {
+                            <div>
+                                <h3>Không tìm thấy món ăn nào!</h3>
+                                <p>Vui lòng thử lại từ khóa khác</p>
+                            </div>
+                        }
+
+    </div>
+
+</div>
