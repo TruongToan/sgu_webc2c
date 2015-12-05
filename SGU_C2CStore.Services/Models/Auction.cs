@@ -5,8 +5,14 @@ using System.Runtime.Serialization;
 namespace SGU_C2CStore.Services.Models
 {
     [DataContract]
-    public class AuctionProduct : Product
+    public class Auction
     {
+        [DataMember]
+        public virtual int Id { get; set; }
+
+        [DataMember]
+        public virtual Product Item { get; set; }
+
         [DataMember]
         public virtual DateTime StartTime { get; set; }
 
@@ -19,9 +25,13 @@ namespace SGU_C2CStore.Services.Models
         [DataMember]
         public virtual AuctionStatus AutionStatus { get; set; }
 
-        public void CopyValues(AuctionProduct p)
+        [DataMember]
+        public virtual ICollection<Bid> Bids { get; set; }
+
+        public void CopyValues(Auction p)
         {
-            base.CopyValues(p);
+            if (p == null) return;
+            this.Item.CopyValues(Item);
             this.BestBid = p.BestBid;
             this.StartTime = p.StartTime;
             this.EndTime = p.EndTime;

@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 namespace SGU_C2CStore.Services
 {
     [ServiceContract]
-    public interface IAuctionService
+    public interface IAuctionService : IBaseAuctionService
     {
+        [OperationContract]
+        string GetServiceInfo();
         /* Own auctions */
         [OperationContract]
-        void AddNewAuction(string userEmail, AuctionProduct item);
+        void AddNewAuction(string userEmail, Auction item);
         [OperationContract]
         void StartAuction(string userEmail, int auctionId, DateTime startTime, DateTime endTime);
         [OperationContract]
@@ -23,11 +25,11 @@ namespace SGU_C2CStore.Services
         [OperationContract]
         User GetWinner(int auctionId);
         [OperationContract]
-        List<AuctionProduct> GetMyAuctions(string userEmail);
+        List<Auction> GetMyAuctions(string userEmail);
         [OperationContract]
         List<Bid> GetBidsOfAuction(string userEmail, int auctionId);
         [OperationContract]
-        List<AuctionProduct> GetMyAuctionsWithStatus(string userEmail, AuctionStatus status);
+        List<Auction> GetMyAuctionsWithStatus(string userEmail, AuctionStatus status);
 
         /* Contact */
         [OperationContract]
@@ -37,15 +39,17 @@ namespace SGU_C2CStore.Services
 
         /* Other users auctions */
         [OperationContract]
+        List<Auction> GetAllAutions();
+        [OperationContract]
         bool Bid(Bid bid);
         [OperationContract]
         int GetBestBid(int auctionId);
         [OperationContract]
-        List<AuctionProduct> GetOpenAuctions();
+        List<Auction> GetOpenAuctions();
         [OperationContract]
-        List<AuctionProduct> GetOpenAuctionsByUser(string userEmail);
+        List<Auction> GetOpenAuctionsByUser(string userEmail);
         [OperationContract]
-        List<AuctionProduct> GetMyWonAuctionsHistory(string userEmail);
+        List<Auction> GetMyWonAuctionsHistory(string userEmail);
         [OperationContract]
         List<Bid> GetMyBidHistory(string userEmail);
         [OperationContract]

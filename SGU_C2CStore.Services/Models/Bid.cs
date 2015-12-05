@@ -13,7 +13,13 @@ namespace SGU_C2CStore.Services.Models
         public virtual int Id { get; set; }
 
         [DataMember]
-        public virtual AuctionProduct Item { get; set; }
+        public virtual int AuctionId { get; set; }
+
+        [DataMember]
+        public virtual Auction Auction { get; set; }
+
+        [DataMember]
+        public virtual string UserId { get; set; }
 
         [DataMember]
         public virtual User User { get; set; }
@@ -26,8 +32,9 @@ namespace SGU_C2CStore.Services.Models
 
         public void CopyValues(Bid bid)
         {
+            if (bid == null) return;
             this.Id = bid.Id;
-            this.Item.CopyValues(bid.Item);
+            this.Auction.CopyValues(bid.Auction);
             this.Price = bid.Price;
             this.User.CopyValues(bid.User);
         }

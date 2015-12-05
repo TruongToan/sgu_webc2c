@@ -176,7 +176,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AuctionProduct.cs" />
+    <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\AuctionStatus.cs" />
     <Compile Include="Models\Bid.cs" />
     <Compile Include="Models\Category.cs" />
@@ -189,6 +189,7 @@
     <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\IAdminService.cs" />
     <Compile Include="Services\AuctionService.cs" />
+    <Compile Include="Services\IBaseAuctionService.cs" />
     <Compile Include="Services\IBaseProductService.cs" />
     <Compile Include="Services\IAuctionService.cs" />
     <Compile Include="Services\IStoreService.cs" />

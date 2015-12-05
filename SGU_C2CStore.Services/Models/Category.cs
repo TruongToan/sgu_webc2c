@@ -17,6 +17,8 @@ namespace SGU_C2CStore.Services.Models
         [DataMember]
         public virtual string Description { get; set; }
 
+        public virtual ICollection<Product> Products { get; set; }
+
         public void CopyValues(Category category)
         {
             this.Id = category.Id;

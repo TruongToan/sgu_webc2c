@@ -33,6 +33,8 @@ namespace SGU_C2CStore.Services.Models
         [DataMember]
         public virtual User Owner { get; set; }
 
+        public virtual string OwnerId { get; set; }
+
         [DataMember]
         public virtual DateTime CreateTime { get; set; }
 

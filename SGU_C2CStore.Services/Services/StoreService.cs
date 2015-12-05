@@ -116,6 +116,7 @@ namespace SGU_C2CStore.Services
             p.Price = product.Price;
             p.PhotoUrl = product.PhotoUrl;
             p.Comments = product.Comments;
+            p.Owner = product.Owner;
 
             return p;
         }
