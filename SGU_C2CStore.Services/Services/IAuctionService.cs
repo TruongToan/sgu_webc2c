@@ -39,20 +39,31 @@ namespace SGU_C2CStore.Services
 
         /* Other users auctions */
         [OperationContract]
-        List<Auction> GetAllAutions();
+        List<Auction> GetAllAutions(int idx, int size);
         [OperationContract]
         bool Bid(Bid bid);
         [OperationContract]
         int GetBestBid(int auctionId);
         [OperationContract]
-        List<Auction> GetOpenAuctions();
+        Auction GetAuction(int Id);
         [OperationContract]
-        List<Auction> GetOpenAuctionsByUser(string userEmail);
+        List<Auction> GetOpenAuctions(int idx, int size);
+        [OperationContract]
+        List<Auction> GetTopPriceAuctions(int idx, int size);
+        [OperationContract]
+        List<Auction> GetTopBidAuctions(int idx, int size);
+        [OperationContract]
+        List<Auction> GetOpenAuctionsByCategory(string categoryName, int idx, int size);
+        [OperationContract]
+        List<Auction> GetOpenAuctionsByUser(string userEmail, int idx, int size);
         [OperationContract]
         List<Auction> GetMyWonAuctionsHistory(string userEmail);
         [OperationContract]
         List<Bid> GetMyBidHistory(string userEmail);
         [OperationContract]
         List<Bid> GetMyBidHistoryByItem(int auctionId);
+
+        [OperationContract]
+        List<Category> GetAllCategories();
     }
 }

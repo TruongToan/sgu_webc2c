@@ -12,10 +12,8 @@ namespace SGU_C2CStore.Services.Models
         [DataMember]
         public virtual int Id { get; set; }
 
-        [DataMember]
         public virtual int AuctionId { get; set; }
 
-        [DataMember]
         public virtual Auction Auction { get; set; }
 
         [DataMember]

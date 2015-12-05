@@ -20,7 +20,7 @@
             {
                 using (Html.BeginForm("Index/" + (menuGroups.IndexOf(type) != 0 ? type : string.Empty), "Auction"))
                 {
-                    if ((ViewBag.Type == string.Empty && menuGroups.IndexOf(type) == 0) || type.Equals(ViewBag.Type))
+                    if ((ViewBag.Type == null && menuGroups.IndexOf(type) == 0) || type.Equals(ViewBag.Type))
                     {
                         <button type="submit" class="list-group-item active nav nav-pills nav-justified">@type</button>
                     }
@@ -53,16 +53,19 @@
                 }
             </div>
         </div>
+        @using (Html.BeginForm())
+        {
+            <ul class="nav nav-tabs">
+                <li role="presentation"><button type="submit" class="btn btn-default active">Sản phẩm mới</button></li>
+                <li role="presentation"><button type="submit" class="btn btn-default">Sản phẩm được đấu giá nhiều nhất</button></li>
+                <li role="presentation"><button type="submit" class="btn btn-default">Sản phẩm giá cao nhất</button></li>
+            </ul>
 
-        <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#">Sản phẩm mới</a></li>
-            <li role="presentation"><a href="#">Sản phẩm được đấu giá nhiều nhất</a></li>
-            <li role="presentation"><a href="#">Sản phẩm giá cao nhất</a></li>
-        </ul>
+        }
 
         <div class="row">
             @{
-                var PageSize = 9;
+                    var PageSize = 9;
                 var rate = 0;
                 var CurrentPageString = Request.QueryString["page"];
                 var CurrentPage = CurrentPageString == "" || CurrentPageString == null || CurrentPageString == "0" ? 1 : int.Parse(CurrentPageString);
@@ -158,8 +161,8 @@
                         else
                         {
                             <div>
-                                <h3>Không tìm thấy món ăn nào!</h3>
-                                <p>Vui lòng thử lại từ khóa khác</p>
+                                <h3>Không tìm thấy sản phẩm nào!</h3>
+                                <p>Vui lòng thử lại danh mục hoặc từ khóa khác</p>
                             </div>
                         }
 
