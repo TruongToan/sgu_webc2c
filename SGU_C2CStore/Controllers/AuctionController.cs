@@ -64,5 +64,21 @@ namespace SGU_C2CStore.Controllers
             }
             return Redirect(returnUrl);
         }
+        [HttpPost]
+        public ActionResult Comment(string returnUrl)
+        {
+            var autionId = int.Parse(Request["Id"]);
+            if (User.Identity.IsAuthenticated)
+            {
+                ApplicationDbContext db = new ApplicationDbContext();
+                var email = db.Users.Where(e => e.UserName == User.Identity.Name).FirstOrDefault().Email;
+                var cmt = Request["Comment"];
+                var proxy = new AuctionServiceClient("BasicHttpBinding_IAuctionService");
+                proxy.Open();
+                proxy.Comment(email, autionId, cmt);
+                proxy.Close();
+            }
+            return Redirect(returnUrl);
+        }
     }
 }

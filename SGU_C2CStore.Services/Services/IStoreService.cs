@@ -46,8 +46,5 @@ namespace SGU_C2CStore.Services
 
         [OperationContract]
         void DeleteProduct(int Id);
-
-        [OperationContract]
-        void Comment(Comment comment);
     }
 }

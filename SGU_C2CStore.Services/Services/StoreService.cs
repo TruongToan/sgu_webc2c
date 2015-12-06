@@ -55,7 +55,7 @@ namespace SGU_C2CStore.Services
         /// <returns></returns>
         public List<Product> GetProductsFromIndex(int index, int count)
         {
-            return TranslateListEntityProduct(Db.Products.OrderByDescending(e => e.CreateTime).Skip(index).Take(count).ToList());
+            return TranslateListEntityProduct(Db.Products.Skip(index).Take(count).ToList());
         }
 
         /// <summary>
@@ -115,7 +115,6 @@ namespace SGU_C2CStore.Services
             p.Category = product.Category;
             p.Price = product.Price;
             p.PhotoUrl = product.PhotoUrl;
-            p.Comments = product.Comments;
             p.Owner = product.Owner;
 
             return p;
@@ -176,16 +175,6 @@ namespace SGU_C2CStore.Services
                 Db.SaveChanges();
             }
             throw new FaultException("Product not found");
-        }
-
-        /// <summary>
-        /// Comment product
-        /// </summary>
-        /// <param name="comment">Comment</param>
-        public void Comment(Comment comment)
-        {
-            Db.Comments.Add(comment);
-            Db.SaveChanges();
         }
 
         /// <summary>

@@ -35,14 +35,6 @@ namespace SGU_C2CStore.Services.Models
 
         public virtual string OwnerId { get; set; }
 
-        [DataMember]
-        public virtual DateTime CreateTime { get; set; }
-
-        [DataMember]
-        public virtual DateTime UpdateTime { get; set; }
-
-        public virtual ICollection<Comment> Comments { get; set; }
-
 
         public void CopyValues(Product p)
         {
@@ -53,8 +45,6 @@ namespace SGU_C2CStore.Services.Models
             IsApproval = p.IsApproval;
             Owner.CopyValues(p.Owner);
             PhotoUrl = p.PhotoUrl;
-            CreateTime = p.CreateTime;
-            UpdateTime = p.UpdateTime;
         }
     }
 }

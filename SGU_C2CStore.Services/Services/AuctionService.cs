@@ -68,9 +68,9 @@ namespace SGU_C2CStore.Services
             throw new NotImplementedException();
         }
 
-        public List<Auction> GetAllAutions(int idx, int size)
+        public List<Auction> GetAllAutions()
         {
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").ToList());
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").ToList());
         }
 
         public int GetBestBid(int auctionId)
@@ -97,7 +97,7 @@ namespace SGU_C2CStore.Services
             var owner = db.Users.Where(e => e.Email == userEmail).FirstOrDefault();
             if (owner == null)
                 throw new FaultException("User not found!");
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Where(e => owner.Email == userEmail).ToList());
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => owner.Email == userEmail).ToList());
         }
 
         public List<Auction> GetMyAuctionsWithStatus(string userEmail, AuctionStatus status)
@@ -105,7 +105,7 @@ namespace SGU_C2CStore.Services
             var owner = db.Users.Where(e => e.Email == userEmail).FirstOrDefault();
             if (owner == null)
                 throw new FaultException("User not found!");
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Where(e => e.AutionStatus == status).ToList());
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => e.AutionStatus == status).ToList());
         }
 
         public List<Bid> GetMyBidHistory(string userEmail)
@@ -145,7 +145,7 @@ namespace SGU_C2CStore.Services
 
         public List<Auction> GetOpenAuctions(int idx, int size)
         {
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Where(e => e.AutionStatus == AuctionStatus.Opened).OrderBy(e => e.StartTime).Skip(idx).Take(size).ToList());
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => e.AutionStatus == AuctionStatus.Opened).OrderBy(e => e.StartTime).Skip(idx).Take(size).ToList());
         }
 
         public List<Auction> GetOpenAuctionsByUser(string userEmail, int idx, int size)
@@ -153,7 +153,7 @@ namespace SGU_C2CStore.Services
             var owner = db.Users.Where(e => e.Email == userEmail).FirstOrDefault();
             if (owner == null)
                 throw new FaultException("User not found!");
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Where(e => e.AutionStatus == AuctionStatus.Opened && e.Item.Owner.Email == userEmail).OrderBy(e => e.StartTime).Skip(idx).Take(size).ToList());
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => e.AutionStatus == AuctionStatus.Opened && e.Item.Owner.Email == userEmail).OrderBy(e => e.StartTime).Skip(idx).Take(size).ToList());
         }
 
         public User GetWinner(int auctionId)
@@ -213,6 +213,13 @@ namespace SGU_C2CStore.Services
                 var newBid = db.Bids.Include("User").Where(e => e.Id == bid.Id).FirstOrDefault();
                 newItem.Bids.Add(newBid);
             }
+            newItem.AuctionComments = new List<AuctionComment>();
+            List<AuctionComment> tmpCmt = auction.AuctionComments.OrderByDescending(e => e.Time).ToList();
+            foreach (AuctionComment cmt in tmpCmt)
+            {
+                var newCmt = db.AuctionComments.Include("CommentUser").Where(e => e.Id == cmt.Id).FirstOrDefault();
+                newItem.AuctionComments.Add(newCmt);
+            }
             return newItem;
         }
 
@@ -252,27 +259,36 @@ namespace SGU_C2CStore.Services
 
         public List<Auction> GetOpenAuctionsByCategory(string categoryName, int idx, int size)
         {
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Where(e => e.AutionStatus == AuctionStatus.Opened && (e.Item.Category.Name.Contains(categoryName) || categoryName == null || "".Equals(categoryName))).OrderByDescending(e => e.StartTime).Skip(idx).Take(size).ToList());
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => e.AutionStatus == AuctionStatus.Opened && (e.Item.Category.Name.Contains(categoryName) || categoryName == null || "".Equals(categoryName))).OrderByDescending(e => e.StartTime).Skip(idx).Take(size).ToList());
         }
 
         public List<Auction> GetTopPriceAuctions(int idx, int size)
         {
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Where(e => e.AutionStatus == AuctionStatus.Opened).OrderByDescending(e => e.BestBid).Skip(idx).Take(size).ToList());
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => e.AutionStatus == AuctionStatus.Opened).OrderByDescending(e => e.BestBid).Skip(idx).Take(size).ToList());
         }
 
         public List<Auction> GetTopBidAuctions(int idx, int size)
         {
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Where(e => e.AutionStatus == AuctionStatus.Opened).OrderByDescending(e => e.Bids.Count()).Skip(idx).Take(size).ToList());
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => e.AutionStatus == AuctionStatus.Opened).OrderByDescending(e => e.Bids.Count()).Skip(idx).Take(size).ToList());
         }
 
         public Auction GetAuction(int Id)
         {
-            return TranslateEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Where(e => e.Id == Id).FirstOrDefault());
+            return TranslateEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => e.Id == Id).FirstOrDefault());
         }
 
         public List<Category> GetAllCategories()
         {
             return db.Categories.ToList();
+        }
+
+        public void Comment(string userEmail, int autionId, string Content)
+        {
+            var user = db.Users.Where(e => e.Email == userEmail).FirstOrDefault();
+            var auction = db.AutionProducts.Where(e => e.Id == autionId).FirstOrDefault();
+            if (user == null) throw new FaultException("User not found");
+            db.AuctionComments.Add(new AuctionComment() { Content = Content, CommentUser = user, Auction = auction, Time = DateTime.Now });
+            db.SaveChanges();
         }
     }
 }

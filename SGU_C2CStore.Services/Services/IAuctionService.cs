@@ -39,7 +39,7 @@ namespace SGU_C2CStore.Services
 
         /* Other users auctions */
         [OperationContract]
-        List<Auction> GetAllAutions(int idx, int size);
+        List<Auction> GetAllAutions();
         [OperationContract]
         bool Bid(string userEmail, int price, int autionId);
         [OperationContract]
@@ -65,5 +65,7 @@ namespace SGU_C2CStore.Services
 
         [OperationContract]
         List<Category> GetAllCategories();
+        [OperationContract]
+        void Comment(string userEmail, int autionId, string Content);
     }
 }

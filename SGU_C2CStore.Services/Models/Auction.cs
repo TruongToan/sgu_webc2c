@@ -28,6 +28,9 @@ namespace SGU_C2CStore.Services.Models
         [DataMember]
         public virtual ICollection<Bid> Bids { get; set; }
 
+        [DataMember]
+        public virtual ICollection<AuctionComment> AuctionComments { get; set; }
+
         public void CopyValues(Auction p)
         {
             if (p == null) return;

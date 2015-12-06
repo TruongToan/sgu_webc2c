@@ -88,7 +88,6 @@ namespace SGU_C2CStore.Services
             p.Category = product.Category;
             p.Price = product.Price;
             p.PhotoUrl = product.PhotoUrl;
-            p.Comments = product.Comments;
 
             return p;
         }

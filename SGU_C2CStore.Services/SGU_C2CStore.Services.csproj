@@ -180,7 +180,7 @@
     <Compile Include="Models\AuctionStatus.cs" />
     <Compile Include="Models\Bid.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\AuctionComment.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />

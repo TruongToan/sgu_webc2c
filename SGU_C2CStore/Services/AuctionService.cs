@@ -21,6 +21,8 @@ namespace SGU_C2CStore.Services.Models
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        private SGU_C2CStore.Services.Models.AuctionComment[] AuctionCommentsField;
+        
         private SGU_C2CStore.Services.Models.AuctionStatus AutionStatusField;
         
         private int BestBidField;
@@ -44,6 +46,19 @@ namespace SGU_C2CStore.Services.Models
             set
             {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SGU_C2CStore.Services.Models.AuctionComment[] AuctionComments
+        {
+            get
+            {
+                return this.AuctionCommentsField;
+            }
+            set
+            {
+                this.AuctionCommentsField = value;
             }
         }
         
@@ -149,8 +164,6 @@ namespace SGU_C2CStore.Services.Models
         
         private SGU_C2CStore.Services.Models.Category CategoryField;
         
-        private System.DateTime CreateTimeField;
-        
         private string DescriptionField;
         
         private int IdField;
@@ -164,8 +177,6 @@ namespace SGU_C2CStore.Services.Models
         private string PhotoUrlField;
         
         private int PriceField;
-        
-        private System.DateTime UpdateTimeField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -189,19 +200,6 @@ namespace SGU_C2CStore.Services.Models
             set
             {
                 this.CategoryField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreateTime
-        {
-            get
-            {
-                return this.CreateTimeField;
-            }
-            set
-            {
-                this.CreateTimeField = value;
             }
         }
         
@@ -295,17 +293,85 @@ namespace SGU_C2CStore.Services.Models
                 this.PriceField = value;
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionComment", Namespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models")]
+    public partial class AuctionComment : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime UpdateTime
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private SGU_C2CStore.Services.Models.User CommentUserField;
+        
+        private string ContentField;
+        
+        private int IdField;
+        
+        private System.DateTime TimeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
             {
-                return this.UpdateTimeField;
+                return this.extensionDataField;
             }
             set
             {
-                this.UpdateTimeField = value;
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SGU_C2CStore.Services.Models.User CommentUser
+        {
+            get
+            {
+                return this.CommentUserField;
+            }
+            set
+            {
+                this.CommentUserField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Content
+        {
+            get
+            {
+                return this.ContentField;
+            }
+            set
+            {
+                this.ContentField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                this.IdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                this.TimeField = value;
             }
         }
     }
@@ -663,10 +729,10 @@ public interface IAuctionService
     System.Threading.Tasks.Task ContactToOwnerAsync(string userEmail, int auctionId, string message);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetAllAutions", ReplyAction="http://tempuri.org/IAuctionService/GetAllAutionsResponse")]
-    SGU_C2CStore.Services.Models.Auction[] GetAllAutions(int idx, int size);
+    SGU_C2CStore.Services.Models.Auction[] GetAllAutions();
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetAllAutions", ReplyAction="http://tempuri.org/IAuctionService/GetAllAutionsResponse")]
-    System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetAllAutionsAsync(int idx, int size);
+    System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetAllAutionsAsync();
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/Bid", ReplyAction="http://tempuri.org/IAuctionService/BidResponse")]
     bool Bid(string userEmail, int price, int autionId);
@@ -739,6 +805,12 @@ public interface IAuctionService
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetAllCategories", ReplyAction="http://tempuri.org/IAuctionService/GetAllCategoriesResponse")]
     System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Category[]> GetAllCategoriesAsync();
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/Comment", ReplyAction="http://tempuri.org/IAuctionService/CommentResponse")]
+    void Comment(string userEmail, int autionId, string Content);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/Comment", ReplyAction="http://tempuri.org/IAuctionService/CommentResponse")]
+    System.Threading.Tasks.Task CommentAsync(string userEmail, int autionId, string Content);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -885,14 +957,14 @@ public partial class AuctionServiceClient : System.ServiceModel.ClientBase<IAuct
         return base.Channel.ContactToOwnerAsync(userEmail, auctionId, message);
     }
     
-    public SGU_C2CStore.Services.Models.Auction[] GetAllAutions(int idx, int size)
+    public SGU_C2CStore.Services.Models.Auction[] GetAllAutions()
     {
-        return base.Channel.GetAllAutions(idx, size);
+        return base.Channel.GetAllAutions();
     }
     
-    public System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetAllAutionsAsync(int idx, int size)
+    public System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetAllAutionsAsync()
     {
-        return base.Channel.GetAllAutionsAsync(idx, size);
+        return base.Channel.GetAllAutionsAsync();
     }
     
     public bool Bid(string userEmail, int price, int autionId)
@@ -1013,5 +1085,15 @@ public partial class AuctionServiceClient : System.ServiceModel.ClientBase<IAuct
     public System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Category[]> GetAllCategoriesAsync()
     {
         return base.Channel.GetAllCategoriesAsync();
+    }
+    
+    public void Comment(string userEmail, int autionId, string Content)
+    {
+        base.Channel.Comment(userEmail, autionId, Content);
+    }
+    
+    public System.Threading.Tasks.Task CommentAsync(string userEmail, int autionId, string Content)
+    {
+        return base.Channel.CommentAsync(userEmail, autionId, Content);
     }
 }
