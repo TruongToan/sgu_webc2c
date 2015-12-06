@@ -187,8 +187,8 @@ namespace SGU_C2CStore.Controllers
                     // Send an email with this link
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    string msg = "Bạn đã đăng ký tài khoản tại SGURestaurant<br/>Vui lòng hoàn tất việc đăng ký của bạn <a href=\"" + callbackUrl + "\">tại đây</a>";
-                    await UserManager.SendEmailAsync(user.Id, "SGURestaurant - Xác nhận đăng ký", msg);
+                    string msg = "Bạn đã đăng ký tài khoản tại SGUStore<br/>Vui lòng hoàn tất việc đăng ký của bạn <a href=\"" + callbackUrl + "\">tại đây</a>";
+                    await UserManager.SendEmailAsync(user.Id, "SGUStore - Xác nhận đăng ký", msg);
 
                     return RedirectToAction("Confirm", new { Email = user.Email });
                 }
