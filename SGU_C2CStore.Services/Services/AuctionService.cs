@@ -323,5 +323,19 @@ namespace SGU_C2CStore.Services
                 .Where(e => e.AutionStatus == AuctionStatus.Opened && (e.Category.Name.Contains(categoryName) || categoryName == null || "".Equals(categoryName)))
                 .OrderByDescending(e => e.Bids.Count()).Skip(idx).Take(size).ToList());
         }
+
+        public void UpdateAutions()
+        {
+            var allAuctions = db.AutionProducts.Where(e => e.AutionStatus == AuctionStatus.Opened).ToList();
+            foreach(var aution in allAuctions)
+            {
+                if (aution.EndTime < DateTime.Now)
+                {
+                    db.Entry(aution).State = System.Data.Entity.EntityState.Modified;
+                    aution.AutionStatus = AuctionStatus.Closed;
+                }
+            }
+            db.SaveChanges();
+        }
     }
 }

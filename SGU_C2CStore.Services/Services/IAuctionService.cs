@@ -73,5 +73,8 @@ namespace SGU_C2CStore.Services
         List<Category> GetAllCategories();
         [OperationContract]
         void Comment(string userEmail, int autionId, string Content);
+
+        [OperationContract]
+        void UpdateAutions();
     }
 }
