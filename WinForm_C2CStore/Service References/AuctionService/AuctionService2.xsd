@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Auction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuctionComments" nillable="true" type="tns:ArrayOfAuctionComment" />
+      <xs:element minOccurs="0" name="AutionStatus" type="tns:AuctionStatus" />
+      <xs:element minOccurs="0" name="BestBid" type="xs:int" />
+      <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBid" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Item" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Auction" nillable="true" type="tns:Auction" />
+  <xs:complexType name="ArrayOfAuctionComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AuctionComment" nillable="true" type="tns:AuctionComment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuctionComment" nillable="true" type="tns:ArrayOfAuctionComment" />
+  <xs:complexType name="AuctionComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CommentUser" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuctionComment" nillable="true" type="tns:AuctionComment" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:simpleType name="AuctionStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New" />
+      <xs:enumeration value="Pending" />
+      <xs:enumeration value="Opened" />
+      <xs:enumeration value="Closed" />
+      <xs:enumeration value="Cancelled" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuctionStatus" nillable="true" type="tns:AuctionStatus" />
+  <xs:complexType name="ArrayOfBid">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Bid" nillable="true" type="tns:Bid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBid" nillable="true" type="tns:ArrayOfBid" />
+  <xs:complexType name="Bid">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Price" type="xs:int" />
+      <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Bid" nillable="true" type="tns:Bid" />
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:Category" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsApproval" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Owner" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="PhotoUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="Category">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="ArrayOfAuction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Auction" nillable="true" type="tns:Auction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuction" nillable="true" type="tns:ArrayOfAuction" />
+  <xs:complexType name="ArrayOfCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategory" nillable="true" type="tns:ArrayOfCategory" />
+</xs:schema>

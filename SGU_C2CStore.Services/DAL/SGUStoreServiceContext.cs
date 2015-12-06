@@ -7,7 +7,7 @@ namespace SGU_C2CStore.Services.DAL
 {
     public class SGUStoreServiceContext : DbContext
     {
-        public SGUStoreServiceContext() : base("name=SGU_C2CStoreContext")
+        public SGUStoreServiceContext() : base("SGU_C2CStoreContext")
         {
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
