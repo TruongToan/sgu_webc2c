@@ -1,0 +1,232 @@
+﻿@using SGU_C2CStore.Services.Models
+@model Auction
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+}
+
+<h2>@Model.Item.Name</h2>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <img class="img-thumbnail" src="@Model.Item.PhotoUrl" alt="">
+    </div>
+
+    <div class="col-md-3">
+        <p>ID: @(Model.Id)</p>
+        <p>Đăng bởi: @Html.ActionLink(Model.Item.Owner.Email, "", "", new { @class = "best-bid" })</p>
+        <p>Giá gốc sản phẩm: @(Model.Item.Price) vnd</p>
+        <p>Bắt đầu: @(Model.StartTime)</p>
+        <p>Kết thúc: @(Model.EndTime)</p>
+        <p><span><img class="" src="~/Content/Images/Auction/clock.png" /></span><strong>01:00:00</strong></p>
+        <p>Giá được đấu giá cao nhất</p>
+        <h4 class="best-bid">@Model.BestBid vnd</h4>
+        @if (Model.Bids.Count() > 0)
+        {
+            <p class="best-bid">@Model.Bids.ElementAt(0).User.Email</p>
+        }
+        else
+        {
+            <p class="best-bid">Chưa có lượt đấu giá nào</p>
+        }
+        @using (Html.BeginForm("Bid", "Auction", new { returnUrl = Request.Url.AbsoluteUri }, FormMethod.Post))
+        {
+            <input class="price-bid-input" name="Price" type="number" />
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <input type="hidden" name="User" value="@User.Identity.Name" />
+            if (User.Identity.IsAuthenticated)
+            {
+                <button class="btn-primary" type="submit">Đặt thầu</button>
+            }
+            else
+            {
+                <button class="btn-default" disabled type="button">Đặt thầu</button>
+            }
+        }
+        <h1></h1>
+    </div>
+
+    <div class="col-md-5">
+        <table class="table-bordered" width="100%">
+            <col width="20%">
+            <col width="40%">
+            <col width="40%">
+            <tr>
+                <th>Số tiền</th>
+                <th>Thời gian</th>
+                <th>Thành viên</th>
+            </tr>
+            @for (var i = 0; i < Model.Bids.Count(); i++)
+            {
+                <tr>
+                    <td>@Model.Bids.ElementAt(i).Price</td>
+                    <td>@Model.Bids.ElementAt(i).Time</td>
+                    <td class="best-bid">@Model.Bids.ElementAt(i).User.Email</td>
+                </tr>
+                }
+        </table>
+        <br />
+        <p>Lượt tham gia đấu giá: @Model.Bids.Count()</p>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-md-12">
+        <h3>Các sản phẩm cùng người đăng</h3>
+        <div class="row">
+            @{
+                var data = ViewData["OtherAutions"] as List<Auction>;
+                var PageSize = 4;
+                var rate = 0;
+                var CurrentPageString = Request.QueryString["page"];
+                var CurrentPage = CurrentPageString == "" || CurrentPageString == null || CurrentPageString == "0" ? 1 : int.Parse(CurrentPageString);
+
+                for (int i = PageSize * (CurrentPage - 1); i < PageSize * CurrentPage && i < data.Count(); i++)
+                {
+                    var item = data.ElementAt(i);
+                    <div class="col-sm-3 col-lg-3 col-md-3 col-sm-3">
+                        <div class="thumbnail float-container">
+                            <img src="@item.Item.PhotoUrl" class="" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right best-bid">@item.BestBid vnd</h4>
+                                <h4>
+                                    @Html.ActionLink(@item.Item.Name, "Detail", new { id = item.Id })
+                                </h4>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">@item.Bids.Count() lượt đấu giá</p>
+                                <p>@Model.Item.Owner.Email</p>
+                            </div>
+
+                            <div class="pager">
+                                @using (Html.BeginForm("Info/" + item.Id, "Home"))
+                                {
+                                    <button class="btn btn-default" type="submit">Chi tiết</button>
+                                    <button class="btn btn-primary add-to-cart" type="button" data-id="@item.Id">Thêm vào giỏ</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+
+        </div>
+        @if (data.Count() > 0)
+            {
+            <nav class="navbar-right">
+                <ul class="pagination">
+                    @{
+                        var Size = data.Count();
+                        var PageCout = (int)Math.Ceiling(Size * 1.0f / PageSize);
+                        var Prev = (CurrentPage - 1) < 1 ? 1 : CurrentPage - 1;
+                        var Next = (CurrentPage + 1) > PageCout ? PageCout : CurrentPage + 1;
+
+                        if (CurrentPage == 1)
+                        {
+                            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                        }
+                        else
+                        {
+                            <li><a href="?page=@Prev " aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                        }
+
+                        for (var i = 1; i <= PageCout; i++)
+                        {
+                            if (i == CurrentPage)
+                            {
+                                <li class="active"><a href="#">@i<span class="sr-only">(current)</span></a></li>
+                            }
+                            else
+                            {
+                                <li><a href="?page=@i">@i</a></li>
+                            }
+                        }
+
+                        if (CurrentPage == PageCout)
+                        {
+                            <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        }
+                        else
+                        {
+                            <li><a href="?page=@Next" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        }
+                    }
+                </ul>
+            </nav>
+                        }
+                        else
+                        {
+                            <div>
+                                <p>Không tìm thấy sản phẩm nào!</p>
+                            </div>
+                        }
+
+
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Quay lại", "Index")
+</p>
+
+<hr />
+
+<h3>Nhận xét</h3>
+
+<div>
+@if (Request.IsAuthenticated)
+{
+    <h4>@User.Identity.Name</h4>
+    using (Html.BeginForm("Create", "Review", new { returnUrl = Request.Url.AbsoluteUri }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" value="@Model.Id" name="Id" />
+
+        <div class="thumbnail">
+            <textarea name="Comment" rows="3" placeholder="Nhập nhận xét của bạn..." class="comment_field"></textarea>
+        </div>
+        <br />
+
+        <div>
+            <button class="btn btn-primary">Gửi nhận xét</button>
+        </div>
+    }
+}
+else
+{
+    @Html.ActionLink("Đăng nhập để bình luận", "Login", "Account", new { ReturnUrl = Request.Url.AbsoluteUri }, null);
+}
+</div>
+
+<hr />
+
+@*<i>@Model.Reviews.Count() nhận xét khác</i>
+@{
+    var sortByTimeReviews = Model.Reviews.OrderByDescending(e => e.Time).ToList();
+}*@
+@*@foreach(var vote in sortByTimeReviews)
+{
+    <div>
+        <div class="comment_group">
+            <div>
+                <b>@vote.User.UserName</b>
+            </div>
+            <div>
+                @for (var j = 0; j < vote.Rate; j++)
+                {
+                    <span class="glyphicon glyphicon-star"></span>
+
+                }
+                @for (var j = 0; j < 5 - vote.Rate; j++)
+                {
+                    <span class="glyphicon glyphicon-star-empty"></span>
+
+                }
+            </div>
+            <div class="comment_area">
+                <p style="text-wrap:unset;">@vote.Comment</p>
+            </div>
+        </div>
+    </div>
+}*@

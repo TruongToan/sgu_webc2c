@@ -72,40 +72,26 @@
 
                 for (int i = PageSize * (CurrentPage - 1); i < PageSize * CurrentPage && i < Model.Count(); i++)
                 {
-                    var meal = Model.ElementAt(i);
+                    var item = Model.ElementAt(i);
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail float-container">
-                            <img src="@meal.Item.PhotoUrl" class="" alt="">
+                            <img src="@item.Item.PhotoUrl" class="" alt="">
                             <div class="caption">
-                                <h4 class="pull-right">@(meal.Item.Price.ToString("0,000"))</h4>
+                                <h4 class="pull-right best-bid">@item.BestBid vnd</h4>
                                 <h4>
-                                    @Html.ActionLink(@meal.Item.Name, "Info", new { id = meal.Id })
+                                    @Html.ActionLink(@item.Item.Name, "Detail", new { id = item.Id })
                                 </h4>
                             </div>
                             <div class="ratings">
-                                <p class="pull-right">0 lượt đấu giá</p>
-                                <p>
-                                    @{
-                                        rate = 0;
-                                    }
-                                    @for (var j = 0; j < rate; j++)
-                                    {
-                                        <span class="glyphicon glyphicon-star"></span>
-
-                                    }
-                                    @for (var j = 0; j < 5 - rate; j++)
-                                    {
-                                        <span class="glyphicon glyphicon-star-empty"></span>
-
-                                    }
-                                </p>
+                                <p class="navbar-right">@item.Bids.Count() lượt đấu giá</p>
+                                <p class="navbar-left">@item.Item.Owner.Email</p>
                             </div>
 
                             <div class="pager">
-                                @using (Html.BeginForm("Info/" + meal.Id, "Home"))
+                                @using (Html.BeginForm("Detail/" + item.Id, "Auction"))
                                 {
                                     <button class="btn btn-default" type="submit">Chi tiết</button>
-                                        <button class="btn btn-primary add-to-cart" type="button" data-id="@meal.Id">Thêm vào giỏ</button>
+                                        <button class="btn btn-primary add-to-cart" type="button" data-id="@item.Id">Thêm vào giỏ</button>
                                 }
                             </div>
                         </div>

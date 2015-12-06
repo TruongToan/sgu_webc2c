@@ -274,6 +274,15 @@ body {
 .rating > label:hover:before,  .rating > label:hover ~ label:before,  .rating:not(:hover) > :checked ~ label:before { opacity: 1; }
 
 
+/*Auction*/
+.best-bid {
+    color: #E51C24;
+}
+
+.price-bid-input{
+    text-align:right;
+    width: 100px;
+}
 
 /*Admin area*/
 

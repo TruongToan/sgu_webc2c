@@ -27,7 +27,7 @@ namespace SGU_C2CStore.Services.Models
         public virtual string PhoneNumber { get; set; }
 
         public virtual ICollection<Product> OwnProducts { get; set; }
-
+        
         public virtual ICollection<Bid> Bids { get; set; }
 
         public void CopyValues(User user)

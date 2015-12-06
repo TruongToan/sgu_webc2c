@@ -669,10 +669,10 @@ public interface IAuctionService
     System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetAllAutionsAsync(int idx, int size);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/Bid", ReplyAction="http://tempuri.org/IAuctionService/BidResponse")]
-    bool Bid([System.ServiceModel.MessageParameterAttribute(Name="bid")] SGU_C2CStore.Services.Models.Bid bid1);
+    bool Bid(string userEmail, int price, int autionId);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/Bid", ReplyAction="http://tempuri.org/IAuctionService/BidResponse")]
-    System.Threading.Tasks.Task<bool> BidAsync(SGU_C2CStore.Services.Models.Bid bid);
+    System.Threading.Tasks.Task<bool> BidAsync(string userEmail, int price, int autionId);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetBestBid", ReplyAction="http://tempuri.org/IAuctionService/GetBestBidResponse")]
     int GetBestBid(int auctionId);
@@ -895,14 +895,14 @@ public partial class AuctionServiceClient : System.ServiceModel.ClientBase<IAuct
         return base.Channel.GetAllAutionsAsync(idx, size);
     }
     
-    public bool Bid(SGU_C2CStore.Services.Models.Bid bid1)
+    public bool Bid(string userEmail, int price, int autionId)
     {
-        return base.Channel.Bid(bid1);
+        return base.Channel.Bid(userEmail, price, autionId);
     }
     
-    public System.Threading.Tasks.Task<bool> BidAsync(SGU_C2CStore.Services.Models.Bid bid)
+    public System.Threading.Tasks.Task<bool> BidAsync(string userEmail, int price, int autionId)
     {
-        return base.Channel.BidAsync(bid);
+        return base.Channel.BidAsync(userEmail, price, autionId);
     }
     
     public int GetBestBid(int auctionId)

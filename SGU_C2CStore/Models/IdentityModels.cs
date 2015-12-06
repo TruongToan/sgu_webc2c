@@ -24,7 +24,7 @@ namespace SGU_C2CStore.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("SGU_C2CStoreAspContext", throwIfV1Schema: false)
+            : base("SGU_C2CStoreAspContext")
         {
         }
 

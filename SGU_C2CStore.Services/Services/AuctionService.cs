@@ -25,11 +25,20 @@ namespace SGU_C2CStore.Services
             db.SaveChanges();
         }
 
-        public bool Bid(Bid bid)
+        public bool Bid(string userEmail, int price, int autionId)
         {
-            var p = db.AutionProducts.Where(e => e.Id == bid.AuctionId).FirstOrDefault();
-            if (p != null && p.AutionStatus == AuctionStatus.Opened && bid.Price > p.BestBid)
+            var p = db.AutionProducts.Where(e => e.Id == autionId).FirstOrDefault();
+            var user = db.Users.Where(e => e.Email == userEmail).FirstOrDefault();
+            if (user == null) throw new FaultException("User not found");
+            if (p != null && p.AutionStatus == AuctionStatus.Opened && price > p.BestBid)
             {
+
+                Bid bid = new Bid();
+                bid.Auction = db.AutionProducts.Where(e => e.Id == autionId).FirstOrDefault();
+                bid.Price = price;
+                bid.Time = DateTime.Now;
+                bid.Auction = p;
+                bid.User = user;
                 db.Bids.Add(bid);
                 p.BestBid = bid.Price;
                 db.SaveChanges();
@@ -144,7 +153,7 @@ namespace SGU_C2CStore.Services
             var owner = db.Users.Where(e => e.Email == userEmail).FirstOrDefault();
             if (owner == null)
                 throw new FaultException("User not found!");
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Where(e => e.AutionStatus == AuctionStatus.Opened && e.Item.Owner.Email == userEmail).OrderBy(e => e.StartTime).Skip(idx).Take(size).ToList());
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Where(e => e.AutionStatus == AuctionStatus.Opened && e.Item.Owner.Email == userEmail).OrderBy(e => e.StartTime).Skip(idx).Take(size).ToList());
         }
 
         public User GetWinner(int auctionId)
@@ -167,7 +176,7 @@ namespace SGU_C2CStore.Services
             if (p == null)
                 throw new FaultException("Auction product not found!");
             if (p.AutionStatus == AuctionStatus.Pending)
-                throw new FaultException("Product have not approval yet!");
+                throw new FaultException("Aution have not approval yet!");
             p.StartTime = startTime;
             p.EndTime = startTime;
             p.AutionStatus = AuctionStatus.Opened;
@@ -198,7 +207,8 @@ namespace SGU_C2CStore.Services
             newItem.AutionStatus = auction.AutionStatus;
             newItem.BestBid = auction.BestBid;
             newItem.Bids = new List<Bid>();
-            foreach (Bid bid in auction.Bids)
+            List<Bid> tmp = auction.Bids.OrderByDescending(e => e.Price).ToList();
+            foreach (Bid bid in tmp)
             {
                 var newBid = db.Bids.Include("User").Where(e => e.Id == bid.Id).FirstOrDefault();
                 newItem.Bids.Add(newBid);

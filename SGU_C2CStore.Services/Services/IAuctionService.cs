@@ -41,7 +41,7 @@ namespace SGU_C2CStore.Services
         [OperationContract]
         List<Auction> GetAllAutions(int idx, int size);
         [OperationContract]
-        bool Bid(Bid bid);
+        bool Bid(string userEmail, int price, int autionId);
         [OperationContract]
         int GetBestBid(int auctionId);
         [OperationContract]
