@@ -54,27 +54,6 @@ namespace SGU_C2CStore.Controllers
             proxy.Close();
             return View();
         }
-        
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Description,CategoryId,IsApproval,Name,PhotoUrl,Price")] Product product)
-        {
-            ApplicationDbContext db = new ApplicationDbContext();
-            var CateId = int.Parse(Request["CategoryId"]);
-            var email = db.Users.Where(e => e.UserName == User.Identity.Name).FirstOrDefault().Email;
-            var BeginPrice = int.Parse(Request["BeginPrice"]);
-            if (ModelState.IsValid)
-            {
-                var proxy = new AuctionServiceClient("BasicHttpBinding_IAuctionService");
-                proxy.Open();
-                product.Category = proxy.GetAllCategories().Where(e => e.Id == CateId).FirstOrDefault();
-                proxy.AddNewAuction(email, new Auction() { Item = product, BestBid = BeginPrice });
-                proxy.Close();
-                return RedirectToAction("Index");
-            }
-
-            return View(product);
-        }
 
         //// GET: Products/Edit/5
         //public ActionResult Edit(int? id)

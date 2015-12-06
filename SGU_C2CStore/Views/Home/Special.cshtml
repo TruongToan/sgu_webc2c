@@ -66,16 +66,16 @@
                     var item = Model.ElementAt(i);
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail float-container">
-                            <img src="@item.Item.PhotoUrl" class="" alt="">
+                            <img src="@item.PhotoUrl" class="" alt="">
                             <div class="caption">
                                 <h4 class="pull-right best-bid">@item.BestBid vnd</h4>
                                 <h4>
-                                    @Html.ActionLink(@item.Item.Name, "Detail", new { id = item.Id })
+                                    @Html.ActionLink(@item.Name, "Detail", new { id = item.Id })
                                 </h4>
                             </div>
                             <div class="ratings">
                                 <p class="navbar-right">@item.Bids.Count() lượt đấu giá</p>
-                                <p class="navbar-left">@item.Item.Owner.Email</p>
+                                <p class="navbar-left">@item.Owner.Email</p>
                             </div>
 
                             <div class="pager">

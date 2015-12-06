@@ -210,6 +210,11 @@ namespace SGU_C2CStore.Services
             Auction newItem = new Auction();
             newItem.Id = auction.Id;
             newItem.Owner = auction.Owner;
+            newItem.Name = auction.Name;
+            newItem.Price = auction.Price;
+            newItem.AuctionComments = auction.AuctionComments;
+            newItem.IsApproval = auction.IsApproval;
+            newItem.PhotoUrl = auction.PhotoUrl;
             newItem.Category = auction.Category;
             newItem.StartTime = auction.StartTime;
             newItem.EndTime = auction.EndTime;

@@ -63,7 +63,7 @@ namespace SGU_C2CStore.Controllers
             var proxy = new AuctionServiceClient("BasicHttpBinding_IAuctionService");
             proxy.Open();
             Auction auction = proxy.GetAuction(id.Value);
-            List<Auction> relativeAutions = proxy.GetOpenAuctionsByUser(auction.Item.Owner.Email, 0, 10).ToList();
+            List<Auction> relativeAutions = proxy.GetOpenAuctionsByUser(auction.Owner.Email, 0, 10).ToList();
             proxy.Close();
             if (auction == null)
             {

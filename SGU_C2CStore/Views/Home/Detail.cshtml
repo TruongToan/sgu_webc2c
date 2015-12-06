@@ -5,18 +5,18 @@
     ViewBag.Title = "Chi tiết sản phẩm";
 }
 
-<h2>@Model.Item.Name</h2>
+<h2>@Model.Name</h2>
 
 <div class="row">
 
     <div class="col-md-4">
-        <img class="img-thumbnail" src="@Model.Item.PhotoUrl" alt="">
+        <img class="img-thumbnail" src="@Model.PhotoUrl" alt="">
     </div>
 
     <div class="col-md-3">
         <p>ID: @(Model.Id)</p>
-        <p>Đăng bởi: @Html.ActionLink(Model.Item.Owner.Email, "", "", new { @class = "best-bid" })</p>
-        <p>Giá gốc sản phẩm: @(Model.Item.Price) vnd</p>
+        <p>Đăng bởi: @Html.ActionLink(Model.Owner.Email, "", "", new { @class = "best-bid" })</p>
+        <p>Giá gốc sản phẩm: @(Model.Price) vnd</p>
         <p>Bắt đầu: @(Model.StartTime)</p>
         <p>Kết thúc: @(Model.EndTime)</p>
         <p><span><img class="" src="~/Content/Images/Auction/clock.png" /></span><strong>01:00:00</strong></p>
@@ -86,16 +86,16 @@
                     var item = data.ElementAt(i);
                     <div class="col-sm-3 col-lg-3 col-md-3 col-sm-3">
                         <div class="thumbnail float-container">
-                            <img src="@item.Item.PhotoUrl" class="" alt="">
+                            <img src="@item.PhotoUrl" class="" alt="">
                             <div class="caption">
                                 <h4 class="pull-right best-bid">@item.BestBid vnd</h4>
                                 <h4>
-                                    @Html.ActionLink(@item.Item.Name, "Detail", new { id = item.Id })
+                                    @Html.ActionLink(@item.Name, "Detail", new { id = item.Id })
                                 </h4>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">@item.Bids.Count() lượt đấu giá</p>
-                                <p>@Model.Item.Owner.Email</p>
+                                <p>@Model.Owner.Email</p>
                             </div>
 
                             <div class="pager">
