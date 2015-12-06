@@ -20,7 +20,7 @@ namespace SGU_C2CStore.Controllers
 
             var proxy = new AuctionServiceClient("BasicHttpBinding_IAuctionService");
             proxy.Open();
-            items = proxy.GetOpenAuctionsByCategory(Id, 0, 10).OrderBy(e => e.StartTime).ToList();
+            items = proxy.GetOpenAuctionsByCategory(Id, 0, 10).ToList();
             ViewData["groups"] = proxy.GetAllCategories().Select(e => e.Name).ToList();
             proxy.Close();
             return View(items);
@@ -34,7 +34,7 @@ namespace SGU_C2CStore.Controllers
 
             var proxy = new AuctionServiceClient("BasicHttpBinding_IAuctionService");
             proxy.Open();
-            items = proxy.GetTopBidAuctionsByCategory(Id, 0, 10).OrderBy(e => e.StartTime).ToList();
+            items = proxy.GetTopBidAuctionsByCategory(Id, 0, 10).ToList();
             ViewData["groups"] = proxy.GetAllCategories().Select(e => e.Name).ToList();
             proxy.Close();
             return View(items);
@@ -48,7 +48,7 @@ namespace SGU_C2CStore.Controllers
 
             var proxy = new AuctionServiceClient("BasicHttpBinding_IAuctionService");
             proxy.Open();
-            items = proxy.GetTopPriceAuctionsByCategory(Id, 0, 10).OrderBy(e => e.StartTime).ToList();
+            items = proxy.GetTopPriceAuctionsByCategory(Id, 0, 10).ToList();
             ViewData["groups"] = proxy.GetAllCategories().Select(e => e.Name).ToList();
             proxy.Close();
             return View(items);

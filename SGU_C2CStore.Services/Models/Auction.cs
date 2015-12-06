@@ -13,6 +13,7 @@ namespace SGU_C2CStore.Services.Models
         [DataMember]
         public virtual string Name { get; set; }
 
+        [DataMember]
         public virtual int CategoryId { get; set; }
 
         [DataMember]
@@ -33,6 +34,7 @@ namespace SGU_C2CStore.Services.Models
         [DataMember]
         public virtual User Owner { get; set; }
 
+        [DataMember]
         public virtual string OwnerId { get; set; }
 
         [DataMember]

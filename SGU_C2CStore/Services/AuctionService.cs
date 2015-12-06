@@ -31,6 +31,8 @@ namespace SGU_C2CStore.Services.Models
         
         private SGU_C2CStore.Services.Models.Category CategoryField;
         
+        private int CategoryIdField;
+        
         private string DescriptionField;
         
         private System.DateTime EndTimeField;
@@ -42,6 +44,8 @@ namespace SGU_C2CStore.Services.Models
         private string NameField;
         
         private SGU_C2CStore.Services.Models.User OwnerField;
+        
+        private string OwnerIdField;
         
         private string PhotoUrlField;
         
@@ -127,6 +131,19 @@ namespace SGU_C2CStore.Services.Models
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CategoryId
+        {
+            get
+            {
+                return this.CategoryIdField;
+            }
+            set
+            {
+                this.CategoryIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description
         {
             get
@@ -201,6 +218,19 @@ namespace SGU_C2CStore.Services.Models
             set
             {
                 this.OwnerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OwnerId
+        {
+            get
+            {
+                return this.OwnerIdField;
+            }
+            set
+            {
+                this.OwnerIdField = value;
             }
         }
         

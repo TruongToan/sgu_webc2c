@@ -74,15 +74,15 @@
                                 </h4>
                             </div>
                             <div class="ratings">
-                                <p class="navbar-right">@item.Bids.Count() lượt đấu giá</p>
+                                <p class="navbar-right">@item.Bids.Count() lượt</p>
                                 <p class="navbar-left">@item.Owner.Email</p>
                             </div>
+                            <div class="clearfix"></div>
 
                             <div class="pager">
                                 @using (Html.BeginForm("Detail/" + item.Id, "Home"))
                                 {
-                                    <button class="btn btn-default" type="submit">Chi tiết</button>
-                                        <button class="btn btn-primary add-to-cart" type="button" data-id="@item.Id">Thêm vào giỏ</button>
+                                    <button class="btn btn-default" type="submit">Xem chi tiết</button>
                                 }
                             </div>
                         </div>

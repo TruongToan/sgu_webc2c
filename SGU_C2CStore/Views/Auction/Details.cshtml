@@ -1,66 +1,135 @@
-﻿@model SGU_C2CStore.Services.Models.Product
+﻿@model SGU_C2CStore.Services.Models.Auction
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết sản phẩm";
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>Product</h4>
+    <h4>Đấu giá</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ExtensionData)
-        </dt>
+    <div class="col-md-12">
+        <div class="col-md-2">
+            <img src="@Model.PhotoUrl" class="img-responsive" />
+        </div>
+        <div class="col-md-4">
+            <dl class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.ExtensionData)
-        </dd>
+                <dt>
+                    Tên
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+                <dt>
+                    Mô tả
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsApproval)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsApproval)
-        </dd>
+                <dt>
+                    Đã xét duyệt
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.IsApproval)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <dt>
+                    Trạng thái
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhotoUrl)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.AutionStatus)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhotoUrl)
-        </dd>
+                <dt>
+                    Giá ban đầu
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+                <dt>
+                    Giá cao nhất
+                </dt>
 
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.BestBid)
+                </dd>
+
+                <dt>
+                    Thời gian bắt đầu
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StartTime)
+                </dd>
+
+                <dt>
+                    Thời gian kết thúc
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EndTime)
+                </dd>
+
+            </dl>
+
+        </div>
+
+        <div class="col-md-6">
+            @if (Model.AutionStatus == SGU_C2CStore.Services.Models.AuctionStatus.Pending)
+            {
+                using (Html.BeginForm("Start", "Auction"))
+                {
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <strong>Thời gian bắt đầu</strong>
+                    <input class="form-control" type="date" name="StartTime" />
+                    <strong>Thời gian kết thúc</strong>
+                    <input class="form-control" type="date" name="EndTime" />
+                    <hr />
+                    <button type="submit" class="btn btn-primary">Bắt đầu đấu giá</button>
+                }
+            }
+            else if (Model.AutionStatus == SGU_C2CStore.Services.Models.AuctionStatus.New)
+            {
+                <strong>Trạng thái đang chờ xét duyệt</strong>
+            }
+            else
+            {
+                <table class="table-bordered" width="100%">
+                    <col width="20%">
+                    <col width="40%">
+                    <col width="40%">
+                    <tr>
+                        <th>Số tiền</th>
+                        <th>Thời gian</th>
+                        <th>Thành viên</th>
+                    </tr>
+                    @for (var i = 0; i < Model.Bids.Count(); i++)
+                    {
+                        <tr>
+                            <td>@Model.Bids.ElementAt(i).Price</td>
+                            <td>@Model.Bids.ElementAt(i).Time</td>
+                            <td class="best-bid">@Model.Bids.ElementAt(i).User.Email</td>
+                        </tr>
+                    }
+                </table>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="clearfix">
+
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Quay lại", "Index")
 </p>

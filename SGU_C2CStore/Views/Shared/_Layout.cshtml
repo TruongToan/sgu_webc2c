@@ -24,6 +24,10 @@
                     <li>@Html.ActionLink("Mới nhất", "Index", "Home", new { area = "", id = string.Empty }, new { })</li>
                     <li>@Html.ActionLink("Hot nhất", "Hot", "Home", new { area = "", id = string.Empty }, new { })</li>
                     <li>@Html.ActionLink("Đặc biệt", "Special", "Home", new { area = "", id = string.Empty }, new { })</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Quản lý cá nhân", "Index", "Auction", new { area = "", id = string.Empty }, new { })</li>
+                    }
                     <li>@Html.ActionLink("Thông tin", "About", "Home")</li>
                     <li>@Html.ActionLink("Liên hệ", "Contact", "Home")</li>
                 </ul>

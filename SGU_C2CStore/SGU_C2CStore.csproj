@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuctionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -255,6 +256,9 @@
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Hot.cshtml" />
     <Content Include="Views\Home\Special.cshtml" />
+    <Content Include="Views\Auction\Create.cshtml" />
+    <Content Include="Views\Auction\Details.cshtml" />
+    <Content Include="Views\Auction\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

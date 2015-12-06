@@ -21,6 +21,11 @@ namespace SGU_C2CStore.Services
             if (owner == null)
                 throw new FaultException("User not found!");
             item.AutionStatus = AuctionStatus.New;
+            item.Owner = owner;
+            item.IsApproval = false;
+            item.StartTime = DateTime.Now;
+            item.EndTime = DateTime.Now;
+            item.AutionStatus = AuctionStatus.New;
             db.AutionProducts.Add(item);
             db.SaveChanges();
         }
@@ -101,7 +106,7 @@ namespace SGU_C2CStore.Services
             var owner = db.Users.Where(e => e.Email == userEmail).FirstOrDefault();
             if (owner == null)
                 throw new FaultException("User not found!");
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Bids").Include("AuctionComments").Where(e => owner.Email == userEmail).ToList());
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Bids").Include("AuctionComments").Include("Category").Include("Owner").Where(e => e.Owner.Email == userEmail).ToList());
         }
 
         public List<Auction> GetMyAuctionsWithStatus(string userEmail, AuctionStatus status)
@@ -109,7 +114,7 @@ namespace SGU_C2CStore.Services
             var owner = db.Users.Where(e => e.Email == userEmail).FirstOrDefault();
             if (owner == null)
                 throw new FaultException("User not found!");
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Bids").Include("AuctionComments").Where(e => e.AutionStatus == status).ToList());
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Bids").Include("AuctionComments").Include("Category").Include("Owner").Where(e => e.AutionStatus == status).ToList());
         }
 
         public List<Bid> GetMyBidHistory(string userEmail)
@@ -187,11 +192,13 @@ namespace SGU_C2CStore.Services
             var p = db.AutionProducts.Where(e => e.Id == auctionId).FirstOrDefault();
             if (p == null)
                 throw new FaultException("Auction product not found!");
-            if (p.AutionStatus == AuctionStatus.Pending)
-                throw new FaultException("Aution have not approval yet!");
-            p.StartTime = startTime;
-            p.EndTime = startTime;
-            p.AutionStatus = AuctionStatus.Opened;
+            if (p.AutionStatus == AuctionStatus.Pending && startTime <= endTime)
+            {
+                p.StartTime = new DateTime(startTime.Year, startTime.Month, startTime.Day);
+                p.EndTime = new DateTime(endTime.Year, endTime.Month, endTime.Day).AddDays(1).AddSeconds(-1);
+                p.AutionStatus = AuctionStatus.Opened;
+                db.SaveChanges();
+            }
         }
 
         public void StopAuction(string userEmail, int auctionId)
@@ -224,6 +231,7 @@ namespace SGU_C2CStore.Services
             newItem.EndTime = auction.EndTime;
             newItem.AutionStatus = auction.AutionStatus;
             newItem.BestBid = auction.BestBid;
+            newItem.Description = auction.Description;
             newItem.Bids = new List<Bid>();
             List<Bid> tmp = auction.Bids.OrderByDescending(e => e.Price).ToList();
             foreach (Bid bid in tmp)
@@ -244,9 +252,9 @@ namespace SGU_C2CStore.Services
         public List<Auction> TranslateListEntityAuctionProduct(List<Auction> auctions)
         {
             List<Auction> result = new List<Auction>();
-            foreach (Auction auction in auctions)
+            for(var i = 0; i < auctions.Count; i++)
             {
-                result.Add(TranslateEntityAuctionProduct(auction));
+                result.Add(TranslateEntityAuctionProduct(auctions.ElementAt(i)));
             }
             return result;
         }
