@@ -19,14 +19,6 @@ namespace SGU_C2CStore.Services.Models
 
         [DataMember]
         public virtual DateTime Time { get; set; }
-
-        public void CopyValues(AuctionComment comment)
-        {
-            this.Id = comment.Id;
-            this.Auction.CopyValues(comment.Auction);
-            this.CommentUser.CopyValues(comment.CommentUser);
-            this.Content = comment.Content;
-            this.Time = comment.Time;
-        }
+        
     }
 }

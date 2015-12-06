@@ -13,8 +13,6 @@ namespace SGU_C2CStore.Services
     {
         Auction TranslateEntityAuctionProduct(Auction auction);
         List<Auction> TranslateListEntityAuctionProduct(List<Auction> auctions);
-        Bid TranslateEntityBid(Bid bid);
-        List<Bid> TranslateListEntityBid(List<Bid> bids);
         
     }
 }

@@ -11,7 +11,29 @@ namespace SGU_C2CStore.Services.Models
         public virtual int Id { get; set; }
 
         [DataMember]
-        public virtual Product Item { get; set; }
+        public virtual string Name { get; set; }
+
+        public virtual int CategoryId { get; set; }
+
+        [DataMember]
+        public virtual Category Category { get; set; }
+
+        [DataMember]
+        public virtual int Price { get; set; }
+
+        [DataMember]
+        public virtual string Description { get; set; }
+
+        [DataMember]
+        public virtual string PhotoUrl { get; set; }
+
+        [DataMember]
+        public virtual bool IsApproval { get; set; }
+
+        [DataMember]
+        public virtual User Owner { get; set; }
+
+        public virtual string OwnerId { get; set; }
 
         [DataMember]
         public virtual DateTime StartTime { get; set; }
@@ -30,16 +52,5 @@ namespace SGU_C2CStore.Services.Models
 
         [DataMember]
         public virtual ICollection<AuctionComment> AuctionComments { get; set; }
-
-        public void CopyValues(Auction p)
-        {
-            if (p == null) return;
-            this.Item.CopyValues(Item);
-            this.BestBid = p.BestBid;
-            this.StartTime = p.StartTime;
-            this.EndTime = p.EndTime;
-            this.BestBid = p.BestBid;
-            this.AutionStatus = p.AutionStatus;
-        }
     }
 }

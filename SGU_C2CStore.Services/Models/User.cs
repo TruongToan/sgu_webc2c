@@ -26,7 +26,7 @@ namespace SGU_C2CStore.Services.Models
         [DataMember]
         public virtual string PhoneNumber { get; set; }
 
-        public virtual ICollection<Product> OwnProducts { get; set; }
+        public virtual ICollection<Auction> OwnAuctions { get; set; }
         
         public virtual ICollection<Bid> Bids { get; set; }
 
