@@ -183,11 +183,6 @@ namespace SGU_C2CStore.Controllers
                 if (result.Succeeded)
                 {
 
-                    ApplicationUserManager userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-                    await userManager.AddToRoleAsync(user.Id, "Customer");
-
-                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
