@@ -13,6 +13,15 @@ namespace SGU_C2CStore.Services
     {
         Auction TranslateEntityAuctionProduct(Auction auction);
         List<Auction> TranslateListEntityAuctionProduct(List<Auction> auctions);
-        
+
     }
+    [ServiceContract]
+    public interface IBaseUserService
+    {
+       
+        User TranslateEntityUser(User user);
+        List<User> TranslateListEntityUser(List<User> users);
+
+    }
+
 }

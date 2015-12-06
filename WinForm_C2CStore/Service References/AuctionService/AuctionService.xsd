@@ -165,6 +165,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAutionsByStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="status" type="q8:AuctionStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAutionsByStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetAutionsByStatusResult" nillable="true" type="q9:ArrayOfAuction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Bid">
     <xs:complexType>
       <xs:sequence>
@@ -205,7 +219,7 @@
   <xs:element name="GetAuctionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetAuctionResult" nillable="true" type="q8:Auction" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetAuctionResult" nillable="true" type="q10:Auction" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -220,7 +234,7 @@
   <xs:element name="GetOpenAuctionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetOpenAuctionsResult" nillable="true" type="q9:ArrayOfAuction" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetOpenAuctionsResult" nillable="true" type="q11:ArrayOfAuction" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -235,7 +249,7 @@
   <xs:element name="GetTopPriceAuctionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetTopPriceAuctionsResult" nillable="true" type="q10:ArrayOfAuction" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetTopPriceAuctionsResult" nillable="true" type="q12:ArrayOfAuction" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -250,7 +264,7 @@
   <xs:element name="GetTopBidAuctionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetTopBidAuctionsResult" nillable="true" type="q11:ArrayOfAuction" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetTopBidAuctionsResult" nillable="true" type="q13:ArrayOfAuction" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -266,7 +280,39 @@
   <xs:element name="GetOpenAuctionsByCategoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetOpenAuctionsByCategoryResult" nillable="true" type="q12:ArrayOfAuction" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetOpenAuctionsByCategoryResult" nillable="true" type="q14:ArrayOfAuction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTopPriceAuctionsByCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="categoryName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idx" type="xs:int" />
+        <xs:element minOccurs="0" name="size" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTopPriceAuctionsByCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetTopPriceAuctionsByCategoryResult" nillable="true" type="q15:ArrayOfAuction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTopBidAuctionsByCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="categoryName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idx" type="xs:int" />
+        <xs:element minOccurs="0" name="size" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTopBidAuctionsByCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetTopBidAuctionsByCategoryResult" nillable="true" type="q16:ArrayOfAuction" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -282,7 +328,7 @@
   <xs:element name="GetOpenAuctionsByUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetOpenAuctionsByUserResult" nillable="true" type="q13:ArrayOfAuction" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetOpenAuctionsByUserResult" nillable="true" type="q17:ArrayOfAuction" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -296,7 +342,7 @@
   <xs:element name="GetMyWonAuctionsHistoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetMyWonAuctionsHistoryResult" nillable="true" type="q14:ArrayOfAuction" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetMyWonAuctionsHistoryResult" nillable="true" type="q18:ArrayOfAuction" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -310,7 +356,7 @@
   <xs:element name="GetMyBidHistoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetMyBidHistoryResult" nillable="true" type="q15:ArrayOfBid" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetMyBidHistoryResult" nillable="true" type="q19:ArrayOfBid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -324,7 +370,7 @@
   <xs:element name="GetMyBidHistoryByItemResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetMyBidHistoryByItemResult" nillable="true" type="q16:ArrayOfBid" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetMyBidHistoryByItemResult" nillable="true" type="q20:ArrayOfBid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -336,7 +382,7 @@
   <xs:element name="GetAllCategoriesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetAllCategoriesResult" nillable="true" type="q17:ArrayOfCategory" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" minOccurs="0" name="GetAllCategoriesResult" nillable="true" type="q21:ArrayOfCategory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

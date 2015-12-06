@@ -6,9 +6,15 @@
       <xs:element minOccurs="0" name="AutionStatus" type="tns:AuctionStatus" />
       <xs:element minOccurs="0" name="BestBid" type="xs:int" />
       <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBid" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:Category" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Item" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="IsApproval" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Owner" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="PhotoUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:int" />
       <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
@@ -64,19 +70,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Bid" nillable="true" type="tns:Bid" />
-  <xs:complexType name="Product">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:Category" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="IsApproval" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Owner" nillable="true" type="tns:User" />
-      <xs:element minOccurs="0" name="PhotoUrl" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Price" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Product" nillable="true" type="tns:Product" />
   <xs:complexType name="Category">
     <xs:sequence>
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />

@@ -22,12 +22,53 @@ namespace WinForm_C2CStore
         }
 
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void AutionForm_Load(object sender, EventArgs e)
         {
-            var listAuction = client.GetAllAutions();
-            foreach(var auction in listAuction)
+
+
+
+
+
+            //Tab All Auction
+            var allAuction = client.GetAllAutions();
+            foreach(var auction in allAuction)
             {
-                allAutionGridView.Rows.Add(auction.Id, auction.Item.Name,auction.Item.Category.ToString(),auction.BestBid,auction.EndTime,auction.AutionStatus);
+                allAutionGV.Rows.Add(auction.Id, auction.Name,auction.Category.Name,auction.Owner.UserName,auction.BestBid,auction.EndTime,auction.AutionStatus);
+            }
+
+            //Tab Auction New
+            var auctionNew = client.GetAutionsByStatus(AuctionStatus.New);
+            foreach (var auction in auctionNew)
+            {
+                auctionNewGV.Rows.Add(auction.Id, auction.Name, auction.Category.Name, auction.Price,auction.StartTime, auction.EndTime);
+            }
+
+            //Tab Auction Openning
+            var auctionPending = client.GetAutionsByStatus(AuctionStatus.Pending);
+            foreach (var auction in auctionPending)
+            {
+                auctionPendingGV.Rows.Add(auction.Id, auction.Name, auction.Category.Name, auction.Price, auction.StartTime, auction.EndTime);
+            }
+
+            //Tab Auction Pending
+            var auctionOpen = client.GetAutionsByStatus(AuctionStatus.Opened);
+            foreach (var auction in auctionOpen)
+            {
+                auctionOpenningGV.Rows.Add(auction.Id, auction.Name, auction.Category.Name, auction.Owner.UserName, auction.BestBid, auction.EndTime);
+            }
+
+            //Tab Auction Sold
+            var auctionSold = client.GetAutionsByStatus(AuctionStatus.Closed);
+            foreach (var auction in auctionSold)
+            {
+                auctionSoldGV.Rows.Add(auction.Id, auction.Name, auction.Category.Name, auction.Owner.UserName, auction.BestBid, auction.EndTime);
+            }
+
+            //Tab Auction Cancelled
+            var auctionCancel = client.GetAutionsByStatus(AuctionStatus.Cancelled);
+            foreach (var auction in auctionCancel)
+            {
+                auctionCancelGV.Rows.Add(auction.Id, auction.Name, auction.Category.Name, auction.Owner.UserName, auction.Price,auction.EndTime, auction.EndTime);
             }
         }
 
@@ -45,6 +86,26 @@ namespace WinForm_C2CStore
             //    sender = auction;
             //   var auction.Item.Name;
             //}
+        }
+
+        private void auctionNewGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void auctionCancelGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

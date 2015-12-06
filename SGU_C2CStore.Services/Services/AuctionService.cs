@@ -72,6 +72,10 @@ namespace SGU_C2CStore.Services
         {
             return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Bids").Include("AuctionComments").Include("Category").Include("Owner").ToList());
         }
+        public List<Auction> GetAutionsByStatus(AuctionStatus status)
+        {
+            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Bids").Include("AuctionComments").Include("Category").Include("Owner").Where(e =>e.AutionStatus == status).ToList());
+        }
 
         public int GetBestBid(int auctionId)
         {
