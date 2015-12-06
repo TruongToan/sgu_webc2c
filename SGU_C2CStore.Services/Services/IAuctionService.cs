@@ -55,6 +55,10 @@ namespace SGU_C2CStore.Services
         [OperationContract]
         List<Auction> GetOpenAuctionsByCategory(string categoryName, int idx, int size);
         [OperationContract]
+        List<Auction> GetTopPriceAuctionsByCategory(string categoryName, int idx, int size);
+        [OperationContract]
+        List<Auction> GetTopBidAuctionsByCategory(string categoryName, int idx, int size);
+        [OperationContract]
         List<Auction> GetOpenAuctionsByUser(string userEmail, int idx, int size);
         [OperationContract]
         List<Auction> GetMyWonAuctionsHistory(string userEmail);

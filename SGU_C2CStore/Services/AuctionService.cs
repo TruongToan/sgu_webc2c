@@ -776,6 +776,18 @@ public interface IAuctionService
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetOpenAuctionsByCategory", ReplyAction="http://tempuri.org/IAuctionService/GetOpenAuctionsByCategoryResponse")]
     System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetOpenAuctionsByCategoryAsync(string categoryName, int idx, int size);
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetTopPriceAuctionsByCategory", ReplyAction="http://tempuri.org/IAuctionService/GetTopPriceAuctionsByCategoryResponse")]
+    SGU_C2CStore.Services.Models.Auction[] GetTopPriceAuctionsByCategory(string categoryName, int idx, int size);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetTopPriceAuctionsByCategory", ReplyAction="http://tempuri.org/IAuctionService/GetTopPriceAuctionsByCategoryResponse")]
+    System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetTopPriceAuctionsByCategoryAsync(string categoryName, int idx, int size);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetTopBidAuctionsByCategory", ReplyAction="http://tempuri.org/IAuctionService/GetTopBidAuctionsByCategoryResponse")]
+    SGU_C2CStore.Services.Models.Auction[] GetTopBidAuctionsByCategory(string categoryName, int idx, int size);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetTopBidAuctionsByCategory", ReplyAction="http://tempuri.org/IAuctionService/GetTopBidAuctionsByCategoryResponse")]
+    System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetTopBidAuctionsByCategoryAsync(string categoryName, int idx, int size);
+    
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetOpenAuctionsByUser", ReplyAction="http://tempuri.org/IAuctionService/GetOpenAuctionsByUserResponse")]
     SGU_C2CStore.Services.Models.Auction[] GetOpenAuctionsByUser(string userEmail, int idx, int size);
     
@@ -1035,6 +1047,26 @@ public partial class AuctionServiceClient : System.ServiceModel.ClientBase<IAuct
     public System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetOpenAuctionsByCategoryAsync(string categoryName, int idx, int size)
     {
         return base.Channel.GetOpenAuctionsByCategoryAsync(categoryName, idx, size);
+    }
+    
+    public SGU_C2CStore.Services.Models.Auction[] GetTopPriceAuctionsByCategory(string categoryName, int idx, int size)
+    {
+        return base.Channel.GetTopPriceAuctionsByCategory(categoryName, idx, size);
+    }
+    
+    public System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetTopPriceAuctionsByCategoryAsync(string categoryName, int idx, int size)
+    {
+        return base.Channel.GetTopPriceAuctionsByCategoryAsync(categoryName, idx, size);
+    }
+    
+    public SGU_C2CStore.Services.Models.Auction[] GetTopBidAuctionsByCategory(string categoryName, int idx, int size)
+    {
+        return base.Channel.GetTopBidAuctionsByCategory(categoryName, idx, size);
+    }
+    
+    public System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetTopBidAuctionsByCategoryAsync(string categoryName, int idx, int size)
+    {
+        return base.Channel.GetTopBidAuctionsByCategoryAsync(categoryName, idx, size);
     }
     
     public SGU_C2CStore.Services.Models.Auction[] GetOpenAuctionsByUser(string userEmail, int idx, int size)

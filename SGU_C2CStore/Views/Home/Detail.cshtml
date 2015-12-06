@@ -30,7 +30,7 @@
         {
             <p class="best-bid">Chưa có lượt đấu giá nào</p>
         }
-        @using (Html.BeginForm("Bid", "Auction", new { returnUrl = Request.Url.AbsoluteUri }, FormMethod.Post))
+        @using (Html.BeginForm("Bid", "Home", new { returnUrl = Request.Url.AbsoluteUri }, FormMethod.Post))
         {
             <input class="price-bid-input" name="Price" type="number" />
             <input type="hidden" name="Id" value="@Model.Id" />
@@ -178,7 +178,7 @@
 @if (Request.IsAuthenticated)
 {
     <h4>@User.Identity.Name</h4>
-    using (Html.BeginForm("Comment", "Auction", new { returnUrl = Request.Url.AbsoluteUri }, FormMethod.Post))
+    using (Html.BeginForm("Comment", "Home", new { returnUrl = Request.Url.AbsoluteUri }, FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         <input type="hidden" value="@Model.Id" name="Id" />

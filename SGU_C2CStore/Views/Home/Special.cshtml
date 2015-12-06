@@ -18,7 +18,7 @@
 
             @foreach (string type in menuGroups)
             {
-                using (Html.BeginForm("Index/" + (menuGroups.IndexOf(type) != 0 ? type : string.Empty), "Auction"))
+                using (Html.BeginForm("Special/" + (menuGroups.IndexOf(type) != 0 ? type : string.Empty), "Home"))
                 {
                     if ((ViewBag.Type == null && menuGroups.IndexOf(type) == 0) || type.Equals(ViewBag.Type))
                     {
@@ -53,15 +53,6 @@
                 }
             </div>
         </div>
-        @using (Html.BeginForm())
-        {
-            <ul class="nav nav-tabs">
-                <li role="presentation"><button type="submit" class="btn btn-default active">Sản phẩm mới</button></li>
-                <li role="presentation"><button type="submit" class="btn btn-default">Sản phẩm được đấu giá nhiều nhất</button></li>
-                <li role="presentation"><button type="submit" class="btn btn-default">Sản phẩm giá cao nhất</button></li>
-            </ul>
-
-        }
 
         <div class="row">
             @{
@@ -88,7 +79,7 @@
                             </div>
 
                             <div class="pager">
-                                @using (Html.BeginForm("Detail/" + item.Id, "Auction"))
+                                @using (Html.BeginForm("Detail/" + item.Id, "Home"))
                                 {
                                     <button class="btn btn-default" type="submit">Chi tiết</button>
                                         <button class="btn btn-primary add-to-cart" type="button" data-id="@item.Id">Thêm vào giỏ</button>

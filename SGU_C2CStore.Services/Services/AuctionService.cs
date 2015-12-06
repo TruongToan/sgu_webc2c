@@ -259,22 +259,33 @@ namespace SGU_C2CStore.Services
 
         public List<Auction> GetOpenAuctionsByCategory(string categoryName, int idx, int size)
         {
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => e.AutionStatus == AuctionStatus.Opened && (e.Item.Category.Name.Contains(categoryName) || categoryName == null || "".Equals(categoryName))).OrderByDescending(e => e.StartTime).Skip(idx).Take(size).ToList());
-        }
-
-        public List<Auction> GetTopPriceAuctions(int idx, int size)
-        {
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => e.AutionStatus == AuctionStatus.Opened).OrderByDescending(e => e.BestBid).Skip(idx).Take(size).ToList());
+            return TranslateListEntityAuctionProduct(
+                db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments")
+                .Where(e => e.AutionStatus == AuctionStatus.Opened && (e.Item.Category.Name.Contains(categoryName) || categoryName == null || "".Equals(categoryName)))
+                .OrderByDescending(e => e.StartTime).Skip(idx).Take(size).ToList());
         }
 
         public List<Auction> GetTopBidAuctions(int idx, int size)
         {
-            return TranslateListEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => e.AutionStatus == AuctionStatus.Opened).OrderByDescending(e => e.Bids.Count()).Skip(idx).Take(size).ToList());
+            return TranslateListEntityAuctionProduct(
+                db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments")
+                .Where(e => e.AutionStatus == AuctionStatus.Opened)
+                .OrderByDescending(e => e.Bids.Count()).Skip(idx).Take(size).ToList());
+        }
+
+        public List<Auction> GetTopPriceAuctions(int idx, int size)
+        {
+            return TranslateListEntityAuctionProduct(
+                db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments")
+                .Where(e => e.AutionStatus == AuctionStatus.Opened)
+                .OrderByDescending(e => e.BestBid).Skip(idx).Take(size).ToList());
         }
 
         public Auction GetAuction(int Id)
         {
-            return TranslateEntityAuctionProduct(db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments").Where(e => e.Id == Id).FirstOrDefault());
+            return TranslateEntityAuctionProduct(
+                db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments")
+                .Where(e => e.Id == Id).FirstOrDefault());
         }
 
         public List<Category> GetAllCategories()
@@ -289,6 +300,22 @@ namespace SGU_C2CStore.Services
             if (user == null) throw new FaultException("User not found");
             db.AuctionComments.Add(new AuctionComment() { Content = Content, CommentUser = user, Auction = auction, Time = DateTime.Now });
             db.SaveChanges();
+        }
+
+        public List<Auction> GetTopPriceAuctionsByCategory(string categoryName, int idx, int size)
+        {
+            return TranslateListEntityAuctionProduct(
+                db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments")
+                .Where(e => e.AutionStatus == AuctionStatus.Opened && (e.Item.Category.Name.Contains(categoryName) || categoryName == null || "".Equals(categoryName)))
+                .OrderByDescending(e => e.BestBid).Skip(idx).Take(size).ToList());
+        }
+
+        public List<Auction> GetTopBidAuctionsByCategory(string categoryName, int idx, int size)
+        {
+            return TranslateListEntityAuctionProduct(
+                db.AutionProducts.Include("Item").Include("Bids").Include("AuctionComments")
+                .Where(e => e.AutionStatus == AuctionStatus.Opened && (e.Item.Category.Name.Contains(categoryName) || categoryName == null || "".Equals(categoryName)))
+                .OrderByDescending(e => e.Bids.Count()).Skip(idx).Take(size).ToList());
         }
     }
 }
