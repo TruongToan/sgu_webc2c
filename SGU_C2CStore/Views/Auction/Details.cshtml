@@ -102,7 +102,7 @@
             {
                 <strong>Trạng thái đang chờ xét duyệt</strong>
             }
-            else
+            else if (Model.AutionStatus == SGU_C2CStore.Services.Models.AuctionStatus.Opened)
             {
                 <table class="table-bordered" width="100%">
                     <col width="20%">
@@ -122,6 +122,34 @@
                         </tr>
                     }
                 </table>
+            }
+            else if (Model.AutionStatus == SGU_C2CStore.Services.Models.AuctionStatus.Closed)
+            {
+                <table class="table-bordered" width="100%">
+                    <col width="20%">
+                    <col width="40%">
+                    <col width="40%">
+                    <tr>
+                        <th>Số tiền</th>
+                        <th>Thời gian</th>
+                        <th>Thành viên</th>
+                    </tr>
+                    @for (var i = 0; i < Model.Bids.Count(); i++)
+                    {
+                        <tr>
+                            <td>@Model.Bids.ElementAt(i).Price</td>
+                            <td>@Model.Bids.ElementAt(i).Time</td>
+                            <td class="best-bid">@Model.Bids.ElementAt(i).User.Email</td>
+                        </tr>
+                    }
+                </table>
+                <hr />
+                if (Model.Bids.Count() > 0)
+                {
+                    var wonUser = @Model.Bids.ElementAt(0).User;
+                    <p><strong>Người thắng cuộc: @wonUser.Email</strong></p>
+                    <p>Số điện thoại: @wonUser.PhoneNumber</p>
+                }
             }
         </div>
     </div>
