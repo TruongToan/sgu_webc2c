@@ -31,7 +31,10 @@
             }
 
         </div>
-        <button class="btn btn-primary nav-justified">Đăng sản phẩm đấu giá</button>
+        @using (Html.BeginForm("Create", "Auction", FormMethod.Get, new { returnUrl = Request.Url.AbsoluteUri }))
+        {
+            <button class="btn btn-primary nav-justified">Đăng sản phẩm đấu giá</button>
+        }
         <br />
         <br />
     </div>
