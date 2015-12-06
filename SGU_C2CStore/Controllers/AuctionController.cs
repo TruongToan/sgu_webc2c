@@ -58,6 +58,19 @@ namespace SGU_C2CStore.Controllers
             return View();
         }
 
+        // GET: Auction/Create
+        public ActionResult WinAution()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            var email = db.Users.Where(e => e.UserName == User.Identity.Name).FirstOrDefault().Email;
+            var proxy = new AuctionServiceClient("BasicHttpBinding_IAuctionService");
+            proxy.Open();
+            var items = proxy.GetMyWonAuctionsHistory(email);
+            proxy.Close();
+            db.Dispose();
+            return View(items);
+        }
+
         // POST: Auction/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

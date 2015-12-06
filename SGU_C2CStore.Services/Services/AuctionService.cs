@@ -139,11 +139,11 @@ namespace SGU_C2CStore.Services
             if (owner == null)
                 throw new FaultException("User not found!");
             var result = new List<Auction>();
-            var groups = db.Bids.GroupBy(e => e.AuctionId).ToList();
+            var groups = db.Bids.Where(e => e.User.Email == userEmail).GroupBy(e => e.AuctionId).ToList();
             foreach(var g in groups)
             {
-                var p = db.AutionProducts.Where(e => e.Id == g.Key).FirstOrDefault();
-                var won = g.Where(e => e.Price == p.BestBid && e.User.Email == userEmail).FirstOrDefault() != null;
+                var p = db.AutionProducts.Include("Bids").Include("AuctionComments").Include("Category").Include("Owner").Where(e => e.Id == g.Key).FirstOrDefault();
+                var won = g.Where(e => e.Price == p.BestBid && p.AutionStatus == AuctionStatus.Closed).FirstOrDefault() != null;
                 if (won)
                 {
                     result.Add(p);
@@ -178,9 +178,8 @@ namespace SGU_C2CStore.Services
             var p = db.AutionProducts.Where(e => e.Id == auctionId).FirstOrDefault();
             if (p == null)
                 throw new FaultException("Auction product not found!");
-            var wonBid = db.Bids.Where(e => e.AuctionId == p.Id && e.Price == p.BestBid).FirstOrDefault();
-            User user = new User();
-            user.CopyValues(db.Users.Where(e => e.Id == wonBid.User.Id).FirstOrDefault());
+            var wonBid = db.Bids.Include("User").Where(e => e.AuctionId == p.Id && e.Price == p.BestBid).FirstOrDefault();
+            User user = db.Users.Where(e => e.Id == wonBid.User.Id).FirstOrDefault();
             return user;
         }
 
