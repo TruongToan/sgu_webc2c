@@ -79,5 +79,9 @@ namespace SGU_C2CStore.Services
 
         [OperationContract]
         void UpdateAutions();
+
+        /* User preference manager */
+        [OperationContract]
+        void AddServiceUser(User user);
     }
 }

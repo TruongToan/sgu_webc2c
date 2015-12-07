@@ -342,5 +342,11 @@ namespace SGU_C2CStore.Services
             }
             db.SaveChanges();
         }
+
+        public void AddServiceUser(User user)
+        {
+            db.Users.Add(user);
+            db.SaveChanges();
+        }
     }
 }

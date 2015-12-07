@@ -6,28 +6,16 @@ using SGU_C2CStore.Services.Models;
 using SGU_C2CStore.Services.DAL;
 using System.ServiceModel;
 
-namespace SGU_C2CStore.Services.Services
+namespace SGU_C2CStore.Services
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     public class UserService : IUserService
     {
         SGUStoreServiceContext db = new SGUStoreServiceContext();
+
         public List<User> GetAllUser()
         {
-
-            return TranslateListEntityUser(db.Users.ToList());
-
-        }
-
-        public User TranslateEntityUser(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public List<User> TranslateListEntityUser(List<User> users)
-        {
-            throw new NotImplementedException();
+            return db.Users.Include("OwnAuctions").Include("Bids").ToList();
         }
     }
 }

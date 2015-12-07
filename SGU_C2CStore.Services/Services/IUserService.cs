@@ -5,12 +5,12 @@ using System.Linq;
 using System.ServiceModel;
 using System.Web;
 
-namespace SGU_C2CStore.Services.Services
+namespace SGU_C2CStore.Services
 {
-    public interface IUserService : IBaseUserService
+    [ServiceContract(Namespace = "SGU_C2CStore.Services.Identity")]
+    public interface IUserService
     {
         [OperationContract]
-         List<User> GetAllUser();
-       
+        List<User> GetAllUser();
     }
 }
