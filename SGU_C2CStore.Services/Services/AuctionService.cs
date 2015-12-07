@@ -96,6 +96,11 @@ namespace SGU_C2CStore.Services
             return db.Bids.Where(e => e.Id == auctionId && p.Owner.Email == userEmail).ToList();
         }
 
+        public List<Bid> GetBidsByAuction(int auctionId)
+        {
+            return db.Bids.Where(e => e.Id == auctionId).ToList();
+        }
+
         public List<Auction> GetMyAuctions(string userEmail)
         {
             var owner = db.Users.Where(e => e.Email == userEmail).FirstOrDefault();

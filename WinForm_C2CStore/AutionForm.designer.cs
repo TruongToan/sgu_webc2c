@@ -41,50 +41,18 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AllAution = new System.Windows.Forms.TabPage();
             this.allAutionGV = new System.Windows.Forms.DataGridView();
+            this.AuctionNew = new System.Windows.Forms.TabPage();
+            this.auctionNewGV = new System.Windows.Forms.DataGridView();
             this.AutionPeding = new System.Windows.Forms.TabPage();
+            this.auctionPendingGV = new System.Windows.Forms.DataGridView();
             this.AuctionOpening = new System.Windows.Forms.TabPage();
             this.auctionOpenningGV = new System.Windows.Forms.DataGridView();
             this.AuctionSold = new System.Windows.Forms.TabPage();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.User = new System.Windows.Forms.TabControl();
-            this.AuctionNew = new System.Windows.Forms.TabPage();
-            this.AuctionCancelled = new System.Windows.Forms.TabPage();
-            this.auctionNewGV = new System.Windows.Forms.DataGridView();
-            this.auctionPendingGV = new System.Windows.Forms.DataGridView();
-            this.IdOpenning = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameOpenning = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryOpenning = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OwerOpening = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BestBidOpening = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndTimeOpenning = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DetailOpenning = new System.Windows.Forms.DataGridViewButtonColumn();
             this.auctionSoldGV = new System.Windows.Forms.DataGridView();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.AuctionCancelled = new System.Windows.Forms.TabPage();
             this.auctionCancelGV = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartTimeNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.CancelNew = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.CancelPending = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.User = new System.Windows.Forms.TabControl();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CategoryAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,7 +60,24 @@
             this.CurrentPriceAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndTimeAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DetailsAll = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartTimeNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdOpenning = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameOpenning = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryOpenning = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OwerOpening = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BestBidOpening = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndTimeOpenning = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,8 +85,12 @@
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -109,18 +98,18 @@
             this.tabControl1.SuspendLayout();
             this.AllAution.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.allAutionGV)).BeginInit();
+            this.AuctionNew.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.auctionNewGV)).BeginInit();
             this.AutionPeding.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.auctionPendingGV)).BeginInit();
             this.AuctionOpening.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.auctionOpenningGV)).BeginInit();
             this.AuctionSold.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            this.User.SuspendLayout();
-            this.AuctionNew.SuspendLayout();
-            this.AuctionCancelled.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.auctionNewGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auctionPendingGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.auctionSoldGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            this.AuctionCancelled.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.auctionCancelGV)).BeginInit();
+            this.User.SuspendLayout();
             this.SuspendLayout();
             // 
             // UserTab
@@ -218,6 +207,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(905, 433);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDoubleClick);
             // 
             // AllAution
             // 
@@ -241,14 +231,45 @@
             this.OwnerAll,
             this.CurrentPriceAll,
             this.EndTimeAll,
-            this.StatusAll,
-            this.DetailsAll});
+            this.StatusAll});
             this.allAutionGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.allAutionGV.Location = new System.Drawing.Point(0, 0);
             this.allAutionGV.Name = "allAutionGV";
             this.allAutionGV.Size = new System.Drawing.Size(897, 407);
             this.allAutionGV.TabIndex = 0;
             this.allAutionGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.allAutionGridView_CellContentClick);
+            this.allAutionGV.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.allAutionGV_MouseDoubleClick);
+            // 
+            // AuctionNew
+            // 
+            this.AuctionNew.Controls.Add(this.auctionNewGV);
+            this.AuctionNew.Location = new System.Drawing.Point(4, 22);
+            this.AuctionNew.Name = "AuctionNew";
+            this.AuctionNew.Padding = new System.Windows.Forms.Padding(3);
+            this.AuctionNew.Size = new System.Drawing.Size(897, 407);
+            this.AuctionNew.TabIndex = 4;
+            this.AuctionNew.Text = "Auction New";
+            this.AuctionNew.UseVisualStyleBackColor = true;
+            // 
+            // auctionNewGV
+            // 
+            this.auctionNewGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.auctionNewGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.auctionNewGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.auctionNewGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.StartTimeNew,
+            this.dataGridViewTextBoxColumn5});
+            this.auctionNewGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.auctionNewGV.Location = new System.Drawing.Point(3, 3);
+            this.auctionNewGV.Name = "auctionNewGV";
+            this.auctionNewGV.Size = new System.Drawing.Size(891, 401);
+            this.auctionNewGV.TabIndex = 1;
+            this.auctionNewGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.auctionNewGridView_CellContentClick);
+            this.auctionNewGV.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.auctionNewGV_MouseDoubleClick);
             // 
             // AutionPeding
             // 
@@ -259,6 +280,25 @@
             this.AutionPeding.Size = new System.Drawing.Size(897, 407);
             this.AutionPeding.TabIndex = 1;
             this.AutionPeding.Text = "Aution Peding";
+            // 
+            // auctionPendingGV
+            // 
+            this.auctionPendingGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.auctionPendingGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.auctionPendingGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.auctionPendingGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13});
+            this.auctionPendingGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.auctionPendingGV.Location = new System.Drawing.Point(0, 0);
+            this.auctionPendingGV.Name = "auctionPendingGV";
+            this.auctionPendingGV.Size = new System.Drawing.Size(897, 407);
+            this.auctionPendingGV.TabIndex = 2;
+            this.auctionPendingGV.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.auctionPendingGV_MouseDoubleClick);
             // 
             // AuctionOpening
             // 
@@ -280,14 +320,14 @@
             this.CategoryOpenning,
             this.OwerOpening,
             this.BestBidOpening,
-            this.EndTimeOpenning,
-            this.DetailOpenning});
+            this.EndTimeOpenning});
             this.auctionOpenningGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.auctionOpenningGV.Location = new System.Drawing.Point(0, 0);
             this.auctionOpenningGV.Name = "auctionOpenningGV";
             this.auctionOpenningGV.Size = new System.Drawing.Size(897, 407);
             this.auctionOpenningGV.TabIndex = 1;
             this.auctionOpenningGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
+            this.auctionOpenningGV.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.auctionOpenningGV_MouseDoubleClick);
             // 
             // AuctionSold
             // 
@@ -300,128 +340,6 @@
             this.AuctionSold.TabIndex = 3;
             this.AuctionSold.Text = "Auction Sold";
             // 
-            // dataGridView5
-            // 
-            this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView5.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(897, 407);
-            this.dataGridView5.TabIndex = 1;
-            // 
-            // User
-            // 
-            this.User.Controls.Add(this.UserTab);
-            this.User.Controls.Add(this.AuctionTab);
-            this.User.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.User.Location = new System.Drawing.Point(0, 0);
-            this.User.Name = "User";
-            this.User.SelectedIndex = 0;
-            this.User.Size = new System.Drawing.Size(919, 465);
-            this.User.TabIndex = 1;
-            // 
-            // AuctionNew
-            // 
-            this.AuctionNew.Controls.Add(this.auctionNewGV);
-            this.AuctionNew.Location = new System.Drawing.Point(4, 22);
-            this.AuctionNew.Name = "AuctionNew";
-            this.AuctionNew.Padding = new System.Windows.Forms.Padding(3);
-            this.AuctionNew.Size = new System.Drawing.Size(897, 407);
-            this.AuctionNew.TabIndex = 4;
-            this.AuctionNew.Text = "Auction New";
-            this.AuctionNew.UseVisualStyleBackColor = true;
-            // 
-            // AuctionCancelled
-            // 
-            this.AuctionCancelled.Controls.Add(this.auctionCancelGV);
-            this.AuctionCancelled.Location = new System.Drawing.Point(4, 22);
-            this.AuctionCancelled.Name = "AuctionCancelled";
-            this.AuctionCancelled.Size = new System.Drawing.Size(897, 407);
-            this.AuctionCancelled.TabIndex = 5;
-            this.AuctionCancelled.Text = "Auction Cancelled";
-            this.AuctionCancelled.UseVisualStyleBackColor = true;
-            // 
-            // auctionNewGV
-            // 
-            this.auctionNewGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.auctionNewGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.auctionNewGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.auctionNewGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.StartTimeNew,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn6,
-            this.CancelNew});
-            this.auctionNewGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.auctionNewGV.Location = new System.Drawing.Point(3, 3);
-            this.auctionNewGV.Name = "auctionNewGV";
-            this.auctionNewGV.Size = new System.Drawing.Size(891, 401);
-            this.auctionNewGV.TabIndex = 1;
-            this.auctionNewGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.auctionNewGridView_CellContentClick);
-            // 
-            // auctionPendingGV
-            // 
-            this.auctionPendingGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.auctionPendingGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.auctionPendingGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.auctionPendingGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.CancelPending});
-            this.auctionPendingGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.auctionPendingGV.Location = new System.Drawing.Point(0, 0);
-            this.auctionPendingGV.Name = "auctionPendingGV";
-            this.auctionPendingGV.Size = new System.Drawing.Size(897, 407);
-            this.auctionPendingGV.TabIndex = 2;
-            // 
-            // IdOpenning
-            // 
-            this.IdOpenning.HeaderText = "Id";
-            this.IdOpenning.Name = "IdOpenning";
-            // 
-            // NameOpenning
-            // 
-            this.NameOpenning.HeaderText = "Name";
-            this.NameOpenning.Name = "NameOpenning";
-            // 
-            // CategoryOpenning
-            // 
-            this.CategoryOpenning.HeaderText = "Category";
-            this.CategoryOpenning.Name = "CategoryOpenning";
-            // 
-            // OwerOpening
-            // 
-            this.OwerOpening.HeaderText = "Ower";
-            this.OwerOpening.Name = "OwerOpening";
-            // 
-            // BestBidOpening
-            // 
-            this.BestBidOpening.HeaderText = "BestBid";
-            this.BestBidOpening.Name = "BestBidOpening";
-            // 
-            // EndTimeOpenning
-            // 
-            this.EndTimeOpenning.HeaderText = "End Time";
-            this.EndTimeOpenning.Name = "EndTimeOpenning";
-            // 
-            // DetailOpenning
-            // 
-            this.DetailOpenning.HeaderText = "Detail";
-            this.DetailOpenning.Name = "DetailOpenning";
-            this.DetailOpenning.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DetailOpenning.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // auctionSoldGV
             // 
             this.auctionSoldGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -432,13 +350,34 @@
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewButtonColumn1});
+            this.dataGridViewTextBoxColumn21});
             this.auctionSoldGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.auctionSoldGV.Location = new System.Drawing.Point(0, 0);
             this.auctionSoldGV.Name = "auctionSoldGV";
             this.auctionSoldGV.Size = new System.Drawing.Size(897, 407);
             this.auctionSoldGV.TabIndex = 2;
+            this.auctionSoldGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.auctionSoldGV_CellContentClick);
+            this.auctionSoldGV.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.auctionSoldGV_MouseDoubleClick);
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView5.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.Size = new System.Drawing.Size(897, 407);
+            this.dataGridView5.TabIndex = 1;
+            // 
+            // AuctionCancelled
+            // 
+            this.AuctionCancelled.Controls.Add(this.auctionCancelGV);
+            this.AuctionCancelled.Location = new System.Drawing.Point(4, 22);
+            this.AuctionCancelled.Name = "AuctionCancelled";
+            this.AuctionCancelled.Size = new System.Drawing.Size(897, 407);
+            this.AuctionCancelled.TabIndex = 5;
+            this.AuctionCancelled.Text = "Auction Cancelled";
+            this.AuctionCancelled.UseVisualStyleBackColor = true;
             // 
             // auctionCancelGV
             // 
@@ -452,163 +391,25 @@
             this.OwnerCancel,
             this.dataGridViewTextBoxColumn25,
             this.dataGridViewTextBoxColumn26,
-            this.dataGridViewTextBoxColumn27,
-            this.dataGridViewTextBoxColumn28,
-            this.dataGridViewTextBoxColumn29});
+            this.dataGridViewTextBoxColumn27});
             this.auctionCancelGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.auctionCancelGV.Location = new System.Drawing.Point(0, 0);
             this.auctionCancelGV.Name = "auctionCancelGV";
             this.auctionCancelGV.Size = new System.Drawing.Size(897, 407);
             this.auctionCancelGV.TabIndex = 2;
             this.auctionCancelGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.auctionCancelGV_CellContentClick);
+            this.auctionCancelGV.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.auctionCancelGV_MouseDoubleClick);
             // 
-            // dataGridViewTextBoxColumn1
+            // User
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Category";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Category";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Start Price";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // StartTimeNew
-            // 
-            this.StartTimeNew.HeaderText = "Start Time";
-            this.StartTimeNew.Name = "StartTimeNew";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "EndTime";
-            this.dataGridViewTextBoxColumn5.HeaderText = "End Time";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Details";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Detail";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Open";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // CancelNew
-            // 
-            this.CancelNew.HeaderText = "Cancel";
-            this.CancelNew.Name = "CancelNew";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn8.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Category";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Category";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "Start Price";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "Start Time";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "EndTime";
-            this.dataGridViewTextBoxColumn13.HeaderText = "End Time";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Details";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Detail";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "Open";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // CancelPending
-            // 
-            this.CancelPending.HeaderText = "Cancel";
-            this.CancelPending.Name = "CancelPending";
-            this.CancelPending.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CancelPending.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.HeaderText = "Category";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.HeaderText = "Ower";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.HeaderText = "BestBid";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.HeaderText = "End Time";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            this.dataGridViewButtonColumn1.HeaderText = "Detail";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewButtonColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.User.Controls.Add(this.UserTab);
+            this.User.Controls.Add(this.AuctionTab);
+            this.User.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.User.Location = new System.Drawing.Point(0, 0);
+            this.User.Name = "User";
+            this.User.SelectedIndex = 0;
+            this.User.Size = new System.Drawing.Size(919, 465);
+            this.User.TabIndex = 1;
             // 
             // id
             // 
@@ -651,13 +452,104 @@
             this.StatusAll.HeaderText = "Status";
             this.StatusAll.Name = "StatusAll";
             // 
-            // DetailsAll
+            // dataGridViewTextBoxColumn1
             // 
-            this.DetailsAll.DataPropertyName = "Details";
-            this.DetailsAll.HeaderText = "Detail";
-            this.DetailsAll.Name = "DetailsAll";
-            this.DetailsAll.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DetailsAll.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Category";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Category";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Start Price";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // StartTimeNew
+            // 
+            this.StartTimeNew.HeaderText = "Start Time";
+            this.StartTimeNew.Name = "StartTimeNew";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "EndTime";
+            this.dataGridViewTextBoxColumn5.HeaderText = "End Time";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn8.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Category";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Category";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "Start Price";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "Start Time";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "EndTime";
+            this.dataGridViewTextBoxColumn13.HeaderText = "End Time";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // IdOpenning
+            // 
+            this.IdOpenning.HeaderText = "Id";
+            this.IdOpenning.Name = "IdOpenning";
+            // 
+            // NameOpenning
+            // 
+            this.NameOpenning.HeaderText = "Name";
+            this.NameOpenning.Name = "NameOpenning";
+            // 
+            // CategoryOpenning
+            // 
+            this.CategoryOpenning.HeaderText = "Category";
+            this.CategoryOpenning.Name = "CategoryOpenning";
+            // 
+            // OwerOpening
+            // 
+            this.OwerOpening.HeaderText = "Ower";
+            this.OwerOpening.Name = "OwerOpening";
+            // 
+            // BestBidOpening
+            // 
+            this.BestBidOpening.HeaderText = "BestBid";
+            this.BestBidOpening.Name = "BestBidOpening";
+            // 
+            // EndTimeOpenning
+            // 
+            this.EndTimeOpenning.HeaderText = "End Time";
+            this.EndTimeOpenning.Name = "EndTimeOpenning";
             // 
             // dataGridViewTextBoxColumn22
             // 
@@ -698,20 +590,35 @@
             this.dataGridViewTextBoxColumn27.HeaderText = "End Time";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             // 
-            // dataGridViewTextBoxColumn28
+            // dataGridViewTextBoxColumn16
             // 
-            this.dataGridViewTextBoxColumn28.DataPropertyName = "Details";
-            this.dataGridViewTextBoxColumn28.HeaderText = "Detail";
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn28.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn16.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             // 
-            // dataGridViewTextBoxColumn29
+            // dataGridViewTextBoxColumn17
             // 
-            this.dataGridViewTextBoxColumn29.HeaderText = "Open";
-            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
-            this.dataGridViewTextBoxColumn29.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn29.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn17.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "Category";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.HeaderText = "Ower";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.HeaderText = "BestBid";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.HeaderText = "End Time";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             // 
             // AutionForm
             // 
@@ -729,18 +636,18 @@
             this.tabControl1.ResumeLayout(false);
             this.AllAution.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.allAutionGV)).EndInit();
+            this.AuctionNew.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.auctionNewGV)).EndInit();
             this.AutionPeding.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.auctionPendingGV)).EndInit();
             this.AuctionOpening.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.auctionOpenningGV)).EndInit();
             this.AuctionSold.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            this.User.ResumeLayout(false);
-            this.AuctionNew.ResumeLayout(false);
-            this.AuctionCancelled.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.auctionNewGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auctionPendingGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.auctionSoldGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            this.AuctionCancelled.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.auctionCancelGV)).EndInit();
+            this.User.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -770,33 +677,8 @@
         private System.Windows.Forms.TabPage AuctionCancelled;
         private System.Windows.Forms.DataGridView auctionNewGV;
         private System.Windows.Forms.DataGridView auctionPendingGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdOpenning;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameOpenning;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryOpenning;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OwerOpening;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BestBidOpening;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndTimeOpenning;
-        private System.Windows.Forms.DataGridViewButtonColumn DetailOpenning;
         private System.Windows.Forms.DataGridView auctionSoldGV;
         private System.Windows.Forms.DataGridView auctionCancelGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartTimeNew;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewButtonColumn CancelNew;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewButtonColumn CancelPending;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryAll;
@@ -804,14 +686,24 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CurrentPriceAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn EndTimeAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusAll;
-        private System.Windows.Forms.DataGridViewButtonColumn DetailsAll;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartTimeNew;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdOpenning;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameOpenning;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryOpenning;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OwerOpening;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BestBidOpening;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndTimeOpenning;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
@@ -819,8 +711,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
     }
 }
 

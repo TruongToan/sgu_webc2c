@@ -107,5 +107,69 @@ namespace WinForm_C2CStore
         {
 
         }
+
+        private void auctionSoldGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void allAutionGV_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+          var auctionId =  allAutionGV.CurrentRow.Cells[0].Value;             
+            int id = Int32.Parse(auctionId.ToString());
+            var auction = client.GetAuction(id);
+            DetailAution detail = new DetailAution(id);
+            detail.Show();
+        }
+
+        private void auctionNewGV_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var auctionId = auctionNewGV.CurrentRow.Cells[0].Value;
+            int id = Int32.Parse(auctionId.ToString());
+            var auction = client.GetAuction(id);
+            DetailAution detail = new DetailAution(id);
+            detail.Show();
+        }
+
+        private void auctionPendingGV_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var auctionId = auctionPendingGV.CurrentRow.Cells[0].Value;
+            int id = Int32.Parse(auctionId.ToString());
+            var auction = client.GetAuction(id);
+            DetailAution detail = new DetailAution(id);
+            detail.Show();
+        }
+
+        private void auctionOpenningGV_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var auctionId = auctionOpenningGV.CurrentRow.Cells[0].Value;
+            int id = Int32.Parse(auctionId.ToString());
+            var auction = client.GetAuction(id);
+            DetailAution detail = new DetailAution(id);
+            detail.Show();
+        }
+
+        private void auctionSoldGV_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var auctionId = auctionSoldGV.CurrentRow.Cells[0].Value;
+            int id = Int32.Parse(auctionId.ToString());
+            var auction = client.GetAuction(id);
+            DetailAution detail = new DetailAution(id);
+            detail.Show();
+        }
+
+        private void tabControl1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void auctionCancelGV_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var auctionId = auctionCancelGV.CurrentRow.Cells[0].Value;
+            int id = Int32.Parse(auctionId.ToString());
+            var auction = client.GetAuction(id);
+            DetailAution detail = new DetailAution(id);
+            detail.Show();
+        }
     }
 }
