@@ -18,7 +18,7 @@ namespace SGU_C2CStore.Services.Migrations
 
         protected override void Seed(SGUStoreServiceContext context)
         {
-            context.Users.Add(new User() { Id = "admin", UserName = "Admin", Email = "admin@gmail.com" });
+            context.Users.Add(new User() { UserName = "Admin", Email = "admin@gmail.com" });
             context.SaveChanges();
 
             var Categories = new List<Category>()

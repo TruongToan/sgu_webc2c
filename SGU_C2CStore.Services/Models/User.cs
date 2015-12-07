@@ -11,8 +11,7 @@ namespace SGU_C2CStore.Services.Models
     public class User
     {
         [DataMember]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public virtual string Id { get; set; }
+        public virtual int Id { get; set; }
 
         [DataMember]
         public virtual string UserName { get; set; }

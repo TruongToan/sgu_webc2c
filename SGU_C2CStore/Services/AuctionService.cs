@@ -15,6 +15,198 @@ namespace SGU_C2CStore.Services.Models
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Bid", Namespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models")]
+    public partial class Bid : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int IdField;
+        
+        private int PriceField;
+        
+        private System.DateTime TimeField;
+        
+        private SGU_C2CStore.Services.Models.User UserField;
+        
+        private int UserIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                this.IdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Price
+        {
+            get
+            {
+                return this.PriceField;
+            }
+            set
+            {
+                this.PriceField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                this.TimeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SGU_C2CStore.Services.Models.User User
+        {
+            get
+            {
+                return this.UserField;
+            }
+            set
+            {
+                this.UserField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId
+        {
+            get
+            {
+                return this.UserIdField;
+            }
+            set
+            {
+                this.UserIdField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models")]
+    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string AddressField;
+        
+        private string EmailField;
+        
+        private int IdField;
+        
+        private string PhoneNumberField;
+        
+        private string UserNameField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address
+        {
+            get
+            {
+                return this.AddressField;
+            }
+            set
+            {
+                this.AddressField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email
+        {
+            get
+            {
+                return this.EmailField;
+            }
+            set
+            {
+                this.EmailField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                this.IdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhoneNumber
+        {
+            get
+            {
+                return this.PhoneNumberField;
+            }
+            set
+            {
+                this.PhoneNumberField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName
+        {
+            get
+            {
+                return this.UserNameField;
+            }
+            set
+            {
+                this.UserNameField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Auction", Namespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models")]
     public partial class Auction : object, System.Runtime.Serialization.IExtensibleDataObject
     {
@@ -44,8 +236,6 @@ namespace SGU_C2CStore.Services.Models
         private string NameField;
         
         private SGU_C2CStore.Services.Models.User OwnerField;
-        
-        private string OwnerIdField;
         
         private string PhotoUrlField;
         
@@ -222,19 +412,6 @@ namespace SGU_C2CStore.Services.Models
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OwnerId
-        {
-            get
-            {
-                return this.OwnerIdField;
-            }
-            set
-            {
-                this.OwnerIdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string PhotoUrl
         {
             get
@@ -342,102 +519,6 @@ namespace SGU_C2CStore.Services.Models
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models")]
-    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string AddressField;
-        
-        private string EmailField;
-        
-        private string IdField;
-        
-        private string PhoneNumberField;
-        
-        private string UserNameField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Address
-        {
-            get
-            {
-                return this.AddressField;
-            }
-            set
-            {
-                this.AddressField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email
-        {
-            get
-            {
-                return this.EmailField;
-            }
-            set
-            {
-                this.EmailField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id
-        {
-            get
-            {
-                return this.IdField;
-            }
-            set
-            {
-                this.IdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PhoneNumber
-        {
-            get
-            {
-                return this.PhoneNumberField;
-            }
-            set
-            {
-                this.PhoneNumberField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserName
-        {
-            get
-            {
-                return this.UserNameField;
-            }
-            set
-            {
-                this.UserNameField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AuctionComment", Namespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models")]
     public partial class AuctionComment : object, System.Runtime.Serialization.IExtensibleDataObject
     {
@@ -537,102 +618,6 @@ namespace SGU_C2CStore.Services.Models
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Cancelled = 4,
     }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Bid", Namespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models")]
-    public partial class Bid : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int IdField;
-        
-        private int PriceField;
-        
-        private System.DateTime TimeField;
-        
-        private SGU_C2CStore.Services.Models.User UserField;
-        
-        private string UserIdField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id
-        {
-            get
-            {
-                return this.IdField;
-            }
-            set
-            {
-                this.IdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Price
-        {
-            get
-            {
-                return this.PriceField;
-            }
-            set
-            {
-                this.PriceField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Time
-        {
-            get
-            {
-                return this.TimeField;
-            }
-            set
-            {
-                this.TimeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SGU_C2CStore.Services.Models.User User
-        {
-            get
-            {
-                return this.UserField;
-            }
-            set
-            {
-                this.UserField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserId
-        {
-            get
-            {
-                return this.UserIdField;
-            }
-            set
-            {
-                this.UserIdField = value;
-            }
-        }
-    }
 }
 
 
@@ -646,6 +631,12 @@ public interface IAuctionService
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetServiceInfo", ReplyAction="http://tempuri.org/IAuctionService/GetServiceInfoResponse")]
     System.Threading.Tasks.Task<string> GetServiceInfoAsync();
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetBidsByAuction", ReplyAction="http://tempuri.org/IAuctionService/GetBidsByAuctionResponse")]
+    SGU_C2CStore.Services.Models.Bid[] GetBidsByAuction(int auctionId);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetBidsByAuction", ReplyAction="http://tempuri.org/IAuctionService/GetBidsByAuctionResponse")]
+    System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Bid[]> GetBidsByAuctionAsync(int auctionId);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/AddNewAuction", ReplyAction="http://tempuri.org/IAuctionService/AddNewAuctionResponse")]
     void AddNewAuction(string userEmail, SGU_C2CStore.Services.Models.Auction item);
@@ -712,6 +703,12 @@ public interface IAuctionService
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetAllAutions", ReplyAction="http://tempuri.org/IAuctionService/GetAllAutionsResponse")]
     System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetAllAutionsAsync();
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetAutionsByStatus", ReplyAction="http://tempuri.org/IAuctionService/GetAutionsByStatusResponse")]
+    SGU_C2CStore.Services.Models.Auction[] GetAutionsByStatus(SGU_C2CStore.Services.Models.AuctionStatus status);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetAutionsByStatus", ReplyAction="http://tempuri.org/IAuctionService/GetAutionsByStatusResponse")]
+    System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetAutionsByStatusAsync(SGU_C2CStore.Services.Models.AuctionStatus status);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/Bid", ReplyAction="http://tempuri.org/IAuctionService/BidResponse")]
     bool Bid(string userEmail, int price, int autionId);
@@ -802,6 +799,12 @@ public interface IAuctionService
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/Comment", ReplyAction="http://tempuri.org/IAuctionService/CommentResponse")]
     System.Threading.Tasks.Task CommentAsync(string userEmail, int autionId, string Content);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/UpdateAutions", ReplyAction="http://tempuri.org/IAuctionService/UpdateAutionsResponse")]
+    void UpdateAutions();
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/UpdateAutions", ReplyAction="http://tempuri.org/IAuctionService/UpdateAutionsResponse")]
+    System.Threading.Tasks.Task UpdateAutionsAsync();
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -846,6 +849,16 @@ public partial class AuctionServiceClient : System.ServiceModel.ClientBase<IAuct
     public System.Threading.Tasks.Task<string> GetServiceInfoAsync()
     {
         return base.Channel.GetServiceInfoAsync();
+    }
+    
+    public SGU_C2CStore.Services.Models.Bid[] GetBidsByAuction(int auctionId)
+    {
+        return base.Channel.GetBidsByAuction(auctionId);
+    }
+    
+    public System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Bid[]> GetBidsByAuctionAsync(int auctionId)
+    {
+        return base.Channel.GetBidsByAuctionAsync(auctionId);
     }
     
     public void AddNewAuction(string userEmail, SGU_C2CStore.Services.Models.Auction item)
@@ -956,6 +969,16 @@ public partial class AuctionServiceClient : System.ServiceModel.ClientBase<IAuct
     public System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetAllAutionsAsync()
     {
         return base.Channel.GetAllAutionsAsync();
+    }
+    
+    public SGU_C2CStore.Services.Models.Auction[] GetAutionsByStatus(SGU_C2CStore.Services.Models.AuctionStatus status)
+    {
+        return base.Channel.GetAutionsByStatus(status);
+    }
+    
+    public System.Threading.Tasks.Task<SGU_C2CStore.Services.Models.Auction[]> GetAutionsByStatusAsync(SGU_C2CStore.Services.Models.AuctionStatus status)
+    {
+        return base.Channel.GetAutionsByStatusAsync(status);
     }
     
     public bool Bid(string userEmail, int price, int autionId)
@@ -1106,5 +1129,15 @@ public partial class AuctionServiceClient : System.ServiceModel.ClientBase<IAuct
     public System.Threading.Tasks.Task CommentAsync(string userEmail, int autionId, string Content)
     {
         return base.Channel.CommentAsync(userEmail, autionId, Content);
+    }
+    
+    public void UpdateAutions()
+    {
+        base.Channel.UpdateAutions();
+    }
+    
+    public System.Threading.Tasks.Task UpdateAutionsAsync()
+    {
+        return base.Channel.UpdateAutionsAsync();
     }
 }

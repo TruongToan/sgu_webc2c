@@ -34,8 +34,7 @@ namespace SGU_C2CStore.Services.Models
         [DataMember]
         public virtual User Owner { get; set; }
 
-        [DataMember]
-        public virtual string OwnerId { get; set; }
+        public virtual int OwnerId { get; set; }
 
         [DataMember]
         public virtual DateTime StartTime { get; set; }
