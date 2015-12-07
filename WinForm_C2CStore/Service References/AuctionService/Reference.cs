@@ -35,7 +35,7 @@ namespace WinForm_C2CStore.AuctionService {
         private WinForm_C2CStore.AuctionService.User UserField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UserIdField;
+        private int UserIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -100,12 +100,12 @@ namespace WinForm_C2CStore.AuctionService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserId {
+        public int UserId {
             get {
                 return this.UserIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.UserIdField, value) != true)) {
+                if ((this.UserIdField.Equals(value) != true)) {
                     this.UserIdField = value;
                     this.RaisePropertyChanged("UserId");
                 }
@@ -138,7 +138,7 @@ namespace WinForm_C2CStore.AuctionService {
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PhoneNumberField;
@@ -183,12 +183,12 @@ namespace WinForm_C2CStore.AuctionService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
+        public int Id {
             get {
                 return this.IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
                 }
@@ -254,6 +254,9 @@ namespace WinForm_C2CStore.AuctionService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WinForm_C2CStore.AuctionService.Category CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CategoryIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
@@ -353,6 +356,19 @@ namespace WinForm_C2CStore.AuctionService {
                 if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
                     this.CategoryField = value;
                     this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CategoryId {
+            get {
+                return this.CategoryIdField;
+            }
+            set {
+                if ((this.CategoryIdField.Equals(value) != true)) {
+                    this.CategoryIdField = value;
+                    this.RaisePropertyChanged("CategoryId");
                 }
             }
         }
@@ -851,6 +867,18 @@ namespace WinForm_C2CStore.AuctionService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/Comment", ReplyAction="http://tempuri.org/IAuctionService/CommentResponse")]
         System.Threading.Tasks.Task CommentAsync(string userEmail, int autionId, string Content);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/UpdateAutions", ReplyAction="http://tempuri.org/IAuctionService/UpdateAutionsResponse")]
+        void UpdateAutions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/UpdateAutions", ReplyAction="http://tempuri.org/IAuctionService/UpdateAutionsResponse")]
+        System.Threading.Tasks.Task UpdateAutionsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/AddServiceUser", ReplyAction="http://tempuri.org/IAuctionService/AddServiceUserResponse")]
+        void AddServiceUser(WinForm_C2CStore.AuctionService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/AddServiceUser", ReplyAction="http://tempuri.org/IAuctionService/AddServiceUserResponse")]
+        System.Threading.Tasks.Task AddServiceUserAsync(WinForm_C2CStore.AuctionService.User user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1110,6 +1138,22 @@ namespace WinForm_C2CStore.AuctionService {
         
         public System.Threading.Tasks.Task CommentAsync(string userEmail, int autionId, string Content) {
             return base.Channel.CommentAsync(userEmail, autionId, Content);
+        }
+        
+        public void UpdateAutions() {
+            base.Channel.UpdateAutions();
+        }
+        
+        public System.Threading.Tasks.Task UpdateAutionsAsync() {
+            return base.Channel.UpdateAutionsAsync();
+        }
+        
+        public void AddServiceUser(WinForm_C2CStore.AuctionService.User user) {
+            base.Channel.AddServiceUser(user);
+        }
+        
+        public System.Threading.Tasks.Task AddServiceUserAsync(WinForm_C2CStore.AuctionService.User user) {
+            return base.Channel.AddServiceUserAsync(user);
         }
     }
 }

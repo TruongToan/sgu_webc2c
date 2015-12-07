@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="SGU_C2CStore.Services.Identity" elementFormDefault="qualified" targetNamespace="SGU_C2CStore.Services.Identity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:50279/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" />
+  <xs:import schemaLocation="https://daugiaservice.azurewebsites.net/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" />
   <xs:element name="GetAllUser">
     <xs:complexType>
       <xs:sequence />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="405c01d9-0522-4e40-a646-af6c2a1f78ec" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b702d746-a549-4d49-90ac-11ccb3ccafde" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:50279/AuctionService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://daugiaservice.azurewebsites.net/auctionservice.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AuctionService.wsdl" MetadataType="Wsdl" ID="efae5af5-1868-4468-920a-54ee77546b73" SourceId="1" SourceUrl="http://localhost:50279/AuctionService.svc?wsdl" />
-    <MetadataFile FileName="AuctionService.xsd" MetadataType="Schema" ID="bde6ea56-0163-4482-ac93-d114022002c5" SourceId="1" SourceUrl="http://localhost:50279/AuctionService.svc?xsd=xsd0" />
-    <MetadataFile FileName="AuctionService.disco" MetadataType="Disco" ID="125958fa-e2ad-435b-acd2-81acc130023a" SourceId="1" SourceUrl="http://localhost:50279/AuctionService.svc?disco" />
-    <MetadataFile FileName="AuctionService1.xsd" MetadataType="Schema" ID="8a1e26da-714e-40aa-bbd1-1ca3165f6aac" SourceId="1" SourceUrl="http://localhost:50279/AuctionService.svc?xsd=xsd1" />
-    <MetadataFile FileName="AuctionService2.xsd" MetadataType="Schema" ID="a91c2964-c8d8-4e97-8beb-ba0e9d6ed8a1" SourceId="1" SourceUrl="http://localhost:50279/AuctionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AuctionService.xsd" MetadataType="Schema" ID="e32bb8b0-0e57-43e1-9813-fc3e3169ab41" SourceId="1" SourceUrl="https://daugiaservice.azurewebsites.net/AuctionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AuctionService.wsdl" MetadataType="Wsdl" ID="d3de87f6-63f2-40dc-b6e4-a1b3e983ff05" SourceId="1" SourceUrl="https://daugiaservice.azurewebsites.net/AuctionService.svc?wsdl" />
+    <MetadataFile FileName="AuctionService.disco" MetadataType="Disco" ID="b2ecc542-a9f1-4dd4-93c8-a0f01cc7dc70" SourceId="1" SourceUrl="https://daugiaservice.azurewebsites.net/AuctionService.svc?disco" />
+    <MetadataFile FileName="AuctionService1.xsd" MetadataType="Schema" ID="0397c7ba-4277-478c-880a-bc3b971682af" SourceId="1" SourceUrl="https://daugiaservice.azurewebsites.net/AuctionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AuctionService2.xsd" MetadataType="Schema" ID="84546841-21eb-4428-b0e1-8c49cbdfb682" SourceId="1" SourceUrl="https://daugiaservice.azurewebsites.net/AuctionService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1198,11 +1198,87 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAuctionService_UpdateAutions_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAuctionService_UpdateAutions_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAuctionService_AddServiceUser_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAuctionService_AddServiceUser_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:50279/AuctionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:50279/AuctionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:50279/AuctionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" />
+      <xsd:import schemaLocation="https://daugiaservice.azurewebsites.net/AuctionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://daugiaservice.azurewebsites.net/AuctionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://daugiaservice.azurewebsites.net/AuctionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SGU_C2CStore.Services.Models" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAuctionService_GetServiceInfo_InputMessage">
@@ -1379,6 +1455,18 @@
   <wsdl:message name="IAuctionService_Comment_OutputMessage">
     <wsdl:part name="parameters" element="tns:CommentResponse" />
   </wsdl:message>
+  <wsdl:message name="IAuctionService_UpdateAutions_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAutions" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_UpdateAutions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAutionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_AddServiceUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddServiceUser" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionService_AddServiceUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddServiceUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAuctionService">
     <wsdl:operation name="GetServiceInfo">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuctionService/GetServiceInfo" message="tns:IAuctionService_GetServiceInfo_InputMessage" />
@@ -1495,6 +1583,14 @@
     <wsdl:operation name="Comment">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuctionService/Comment" message="tns:IAuctionService_Comment_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuctionService/CommentResponse" message="tns:IAuctionService_Comment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAutions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionService/UpdateAutions" message="tns:IAuctionService_UpdateAutions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionService/UpdateAutionsResponse" message="tns:IAuctionService_UpdateAutions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddServiceUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionService/AddServiceUser" message="tns:IAuctionService_AddServiceUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionService/AddServiceUserResponse" message="tns:IAuctionService_AddServiceUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAuctionService" type="tns:IAuctionService">
@@ -1753,6 +1849,24 @@
     </wsdl:operation>
     <wsdl:operation name="Comment">
       <soap:operation soapAction="http://tempuri.org/IAuctionService/Comment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAutions">
+      <soap:operation soapAction="http://tempuri.org/IAuctionService/UpdateAutions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddServiceUser">
+      <soap:operation soapAction="http://tempuri.org/IAuctionService/AddServiceUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2083,17 +2197,39 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateAutions">
+      <soap12:operation soapAction="http://tempuri.org/IAuctionService/UpdateAutions" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAuctionService_UpdateAutions_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAuctionService_UpdateAutions_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddServiceUser">
+      <soap12:operation soapAction="http://tempuri.org/IAuctionService/AddServiceUser" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAuctionService_AddServiceUser_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAuctionService_AddServiceUser_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="AuctionService">
     <wsdl:port name="BasicHttpBinding_IAuctionService" binding="tns:BasicHttpBinding_IAuctionService">
-      <soap:address location="http://localhost:50279/AuctionService.svc/basic" />
+      <soap:address location="http://daugiaservice.azurewebsites.net/AuctionService.svc/basic" />
     </wsdl:port>
     <wsdl:port name="WSHttpBinding_IAuctionService" binding="tns:WSHttpBinding_IAuctionService">
-      <soap12:address location="http://localhost:50279/AuctionService.svc" />
+      <soap12:address location="http://daugiaservice.azurewebsites.net/AuctionService.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:50279/AuctionService.svc</wsa10:Address>
+        <wsa10:Address>http://daugiaservice.azurewebsites.net/AuctionService.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>LINH\linhh</Upn>
+          <Spn>host/RD000D3AA0B08F</Spn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
