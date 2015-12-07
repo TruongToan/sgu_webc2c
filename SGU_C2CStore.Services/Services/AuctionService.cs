@@ -348,5 +348,19 @@ namespace SGU_C2CStore.Services
             db.Users.Add(user);
             db.SaveChanges();
         }
+
+        public bool ActiveAuctions(int auctionId)
+        {
+            var p = db.AutionProducts.Where(e => e.Id == auctionId).FirstOrDefault();
+            if (p == null) return false;
+            if (p.AutionStatus == AuctionStatus.New)
+            {
+                p.AutionStatus = AuctionStatus.Pending;
+                p.IsApproval = true;
+            }
+            db.SaveChanges();
+            p = db.AutionProducts.Where(e => e.Id == auctionId).FirstOrDefault();
+            return p.AutionStatus == AuctionStatus.Pending;
+        }
     }
 }

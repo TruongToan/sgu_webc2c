@@ -83,5 +83,8 @@ namespace SGU_C2CStore.Services
         /* User preference manager */
         [OperationContract]
         void AddServiceUser(User user);
+
+        [OperationContract]
+        bool ActiveAuctions(int auctionId);
     }
 }

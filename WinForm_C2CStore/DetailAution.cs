@@ -13,7 +13,7 @@ namespace WinForm_C2CStore
 {
     public partial class DetailAution : Form
     {
-        private AuctionServiceClient client = new AuctionServiceClient("WSHttpBinding_IAuctionService");
+        private AuctionServiceClient client = new AuctionServiceClient("BasicHttpBinding_IAuctionService");
         int id;
         public DetailAution(int id)
         {
@@ -22,6 +22,11 @@ namespace WinForm_C2CStore
         }
 
         private void DetailAution_Load(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
+        private void loadData()
         {
             var auction = client.GetAuction(id);
             txtId.Text = auction.Id.ToString();
@@ -34,8 +39,10 @@ namespace WinForm_C2CStore
             txtStatus.Text = auction.AutionStatus.ToString();
             txtDescription.Text = auction.Description;
             txtPrice.Text = auction.Price.ToString();
+            buttonApproval.Enabled = auction.AutionStatus == AuctionStatus.New;
 
-            foreach(var bid in auction.Bids)
+            bidsGV.Rows.Clear();
+            foreach (var bid in auction.Bids)
             {
                 bidsGV.Rows.Add(bid.Id, bid.User.UserName, bid.Price, bid.Time);
             }
@@ -54,6 +61,12 @@ namespace WinForm_C2CStore
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonApproval_Click(object sender, EventArgs e)
+        {
+            client.ActiveAuctions(this.id);
+            loadData();
         }
     }
 }

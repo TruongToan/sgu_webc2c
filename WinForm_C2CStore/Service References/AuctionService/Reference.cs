@@ -879,6 +879,12 @@ namespace WinForm_C2CStore.AuctionService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/AddServiceUser", ReplyAction="http://tempuri.org/IAuctionService/AddServiceUserResponse")]
         System.Threading.Tasks.Task AddServiceUserAsync(WinForm_C2CStore.AuctionService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/ActiveAuctions", ReplyAction="http://tempuri.org/IAuctionService/ActiveAuctionsResponse")]
+        bool ActiveAuctions(int auctionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/ActiveAuctions", ReplyAction="http://tempuri.org/IAuctionService/ActiveAuctionsResponse")]
+        System.Threading.Tasks.Task<bool> ActiveAuctionsAsync(int auctionId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1154,6 +1160,14 @@ namespace WinForm_C2CStore.AuctionService {
         
         public System.Threading.Tasks.Task AddServiceUserAsync(WinForm_C2CStore.AuctionService.User user) {
             return base.Channel.AddServiceUserAsync(user);
+        }
+        
+        public bool ActiveAuctions(int auctionId) {
+            return base.Channel.ActiveAuctions(auctionId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ActiveAuctionsAsync(int auctionId) {
+            return base.Channel.ActiveAuctionsAsync(auctionId);
         }
     }
 }
