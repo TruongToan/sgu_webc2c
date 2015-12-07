@@ -15,6 +15,9 @@ namespace SGU_C2CStore.Services
         string GetServiceInfo();
         /* Own auctions */
         [OperationContract]
+        List<Bid> GetBidsByAuction(int auctionId);
+
+        [OperationContract]
         void AddNewAuction(string userEmail, Auction item);
         [OperationContract]
         void StartAuction(string userEmail, int auctionId, DateTime startTime, DateTime endTime);
