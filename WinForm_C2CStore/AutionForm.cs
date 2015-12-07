@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinForm_C2CStore.AuctionService;
+using WinForm_C2CStore.UserService;
 
 namespace WinForm_C2CStore
 {
     public partial class AutionForm : Form
     {
 
-        private AuctionServiceClient client = new AuctionServiceClient();
+        private AuctionServiceClient client = new AuctionServiceClient("WSHttpBinding_IAuctionService");
+        private UserServiceClient userClient = new UserServiceClient("WSHttpBinding_IUserService");
 
         public AutionForm()
         {
@@ -24,11 +26,16 @@ namespace WinForm_C2CStore
 
         private void AutionForm_Load(object sender, EventArgs e)
         {
+            userGridView.AllowUserToAddRows = false;
+            allAutionGV.AllowUserToAddRows = false;
 
+            var users = userClient.GetAllUser();
 
-
-
-
+            foreach (var user in users)
+            {
+                userGridView.Rows.Add(user.Id, user.UserName, user.Email, user.PhoneNumber);
+            }
+            
             //Tab All Auction
             var allAuction = client.GetAllAutions();
             foreach(var auction in allAuction)

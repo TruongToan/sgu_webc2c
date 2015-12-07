@@ -13,7 +13,7 @@ namespace WinForm_C2CStore
 {
     public partial class DetailAution : Form
     {
-        private AuctionServiceClient client = new AuctionServiceClient();
+        private AuctionServiceClient client = new AuctionServiceClient("WSHttpBinding_IAuctionService");
         int id;
         public DetailAution(int id)
         {
@@ -33,10 +33,9 @@ namespace WinForm_C2CStore
             txtStartTime.Text = auction.StartTime.ToString();
             txtStatus.Text = auction.AutionStatus.ToString();
             txtDescription.Text = auction.Description;
+            txtPrice.Text = auction.Price.ToString();
 
-            var bids = client.GetBidsByAuction(id);
-
-            foreach(var bid in bids)
+            foreach(var bid in auction.Bids)
             {
                 bidsGV.Rows.Add(bid.Id, bid.User.UserName, bid.Price, bid.Time);
             }
