@@ -26,9 +26,20 @@
         <p>ID: @(Model.Id)</p>
         <p>Đăng bởi: @Html.ActionLink(Model.Owner.Email, "", "", new { @class = "best-bid" })</p>
         <p>Giá gốc sản phẩm: @(Model.Price) vnd</p>
-        <p>Bắt đầu: @(Model.StartTime)</p>
-        <p>Kết thúc: @(Model.EndTime)</p>
-        <p><span><img class="" src="~/Content/Images/Auction/clock.png" /><span id="clock"></span></span></p>
+        <p>Bắt đầu: @(string.Format("{0:dd/MM/yyyy H:mm:ss}",Model.StartTime))</p>
+        <p>Kết thúc: @(string.Format("{0:dd/MM/yyyy H:mm:ss}", Model.EndTime))</p>
+        <p>
+            <span><img class="" src="~/Content/Images/Auction/clock.png" />
+                @if (Model.AutionStatus == AuctionStatus.Opened)
+                {
+                    <span id="clock"></span>
+                }
+                else
+                {
+                    <span class="best-bid">Sản phẩm đã kết thúc đấu giá</span>
+                }
+            </span>
+        </p>
         <p>Giá được đấu giá cao nhất</p>
         <h4 class="best-bid">@Model.BestBid vnd</h4>
         @if (Model.Bids.Count() > 0)
@@ -70,7 +81,7 @@
             {
                 <tr>
                     <td>@Model.Bids.ElementAt(i).Price</td>
-                    <td>@Model.Bids.ElementAt(i).Time</td>
+                    <td>@string.Format("{0:dd/MM/yyyy H:mm:ss}", Model.Bids.ElementAt(i).Time)</td>
                     <td class="best-bid">@Model.Bids.ElementAt(i).User.Email</td>
                 </tr>
                 }
