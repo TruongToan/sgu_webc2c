@@ -811,6 +811,12 @@ public interface IAuctionService
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/AddServiceUser", ReplyAction="http://tempuri.org/IAuctionService/AddServiceUserResponse")]
     System.Threading.Tasks.Task AddServiceUserAsync(SGU_C2CStore.Services.Models.User user);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/ActiveAuctions", ReplyAction="http://tempuri.org/IAuctionService/ActiveAuctionsResponse")]
+    bool ActiveAuctions(int auctionId);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/ActiveAuctions", ReplyAction="http://tempuri.org/IAuctionService/ActiveAuctionsResponse")]
+    System.Threading.Tasks.Task<bool> ActiveAuctionsAsync(int auctionId);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1155,5 +1161,15 @@ public partial class AuctionServiceClient : System.ServiceModel.ClientBase<IAuct
     public System.Threading.Tasks.Task AddServiceUserAsync(SGU_C2CStore.Services.Models.User user)
     {
         return base.Channel.AddServiceUserAsync(user);
+    }
+    
+    public bool ActiveAuctions(int auctionId)
+    {
+        return base.Channel.ActiveAuctions(auctionId);
+    }
+    
+    public System.Threading.Tasks.Task<bool> ActiveAuctionsAsync(int auctionId)
+    {
+        return base.Channel.ActiveAuctionsAsync(auctionId);
     }
 }

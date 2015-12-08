@@ -184,6 +184,11 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\AuctionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Services\AuctionService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -218,6 +223,13 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Service References\AuctionService\AuctionService.disco" />
+    <None Include="Service References\AuctionService\configuration91.svcinfo" />
+    <None Include="Service References\AuctionService\configuration.svcinfo" />
+    <None Include="Service References\AuctionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -252,7 +264,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Info.cshtml" />
     <Content Include="Views\Account\Confirm.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Hot.cshtml" />
@@ -261,6 +272,28 @@
     <Content Include="Views\Auction\Details.cshtml" />
     <Content Include="Views\Auction\Index.cshtml" />
     <Content Include="Views\Auction\WinAution.cshtml" />
+    <None Include="Service References\AuctionService\AuctionService.wsdl" />
+    <None Include="Service References\AuctionService\AuctionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuctionService\AuctionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuctionService\AuctionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\AuctionService\SGU_C2CStore.AuctionService.Auction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AuctionService\SGU_C2CStore.AuctionService.Bid.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AuctionService\SGU_C2CStore.AuctionService.Category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AuctionService\SGU_C2CStore.AuctionService.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -278,6 +311,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AuctionService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

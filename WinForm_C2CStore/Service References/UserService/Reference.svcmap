@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="471496e0-8eb2-4229-9920-90ba1d475238" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="de484467-ec62-4b30-b258-95f0a7d3016e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,15 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://daugiaservice.azurewebsites.net/userservice.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://sgudaugia.azurewebsites.net/userservice.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UserService.xsd" MetadataType="Schema" ID="52fa7bea-438d-4aec-bd22-9eacb34535ac" SourceId="1" SourceUrl="https://daugiaservice.azurewebsites.net/UserService.svc?xsd=xsd0" />
-    <MetadataFile FileName="UserService1.xsd" MetadataType="Schema" ID="e5087727-96cd-4f14-a50f-55823d28bb68" SourceId="1" SourceUrl="https://daugiaservice.azurewebsites.net/UserService.svc?xsd=xsd1" />
-    <MetadataFile FileName="UserService.disco" MetadataType="Disco" ID="21d339d2-b585-4429-b417-cea45901832f" SourceId="1" SourceUrl="https://daugiaservice.azurewebsites.net/UserService.svc?disco" />
-    <MetadataFile FileName="UserService.wsdl" MetadataType="Wsdl" ID="9ac0532f-8968-4142-8b00-f324c1a671e6" SourceId="1" SourceUrl="https://daugiaservice.azurewebsites.net/UserService.svc?wsdl=wsdl0" />
-    <MetadataFile FileName="UserService1.wsdl" MetadataType="Wsdl" ID="0146b9c5-38a1-46b2-b216-328f37acc100" SourceId="1" SourceUrl="https://daugiaservice.azurewebsites.net/UserService.svc?wsdl" />
-    <MetadataFile FileName="UserService2.xsd" MetadataType="Schema" ID="7cd9f34a-198d-4994-85a8-408a38d8cb20" SourceId="1" SourceUrl="https://daugiaservice.azurewebsites.net/UserService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserService.wsdl" MetadataType="Wsdl" ID="e56ee1c7-4de2-4850-bfb7-082cf245180b" SourceId="1" SourceUrl="https://sgudaugia.azurewebsites.net/UserService.svc?wsdl" />
+    <MetadataFile FileName="UserService.xsd" MetadataType="Schema" ID="5da90191-f881-4448-81b3-45085f3cd0f6" SourceId="1" SourceUrl="https://sgudaugia.azurewebsites.net/UserService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserService1.wsdl" MetadataType="Wsdl" ID="b5a6c85d-b67e-4006-a362-937a08d96bfe" SourceId="1" SourceUrl="https://sgudaugia.azurewebsites.net/UserService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="UserService1.xsd" MetadataType="Schema" ID="763ca1ab-e3ab-4785-9b41-ac6bbf8b8231" SourceId="1" SourceUrl="https://sgudaugia.azurewebsites.net/UserService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserService.disco" MetadataType="Disco" ID="3b16cfec-3bc5-453a-bab9-514f6fc504a5" SourceId="1" SourceUrl="https://sgudaugia.azurewebsites.net/UserService.svc?disco" />
+    <MetadataFile FileName="UserService2.xsd" MetadataType="Schema" ID="d7dbc13c-7d0d-49f7-9e77-1407217cf92a" SourceId="1" SourceUrl="https://sgudaugia.azurewebsites.net/UserService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

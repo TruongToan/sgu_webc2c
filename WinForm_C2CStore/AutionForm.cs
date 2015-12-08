@@ -76,14 +76,14 @@ namespace WinForm_C2CStore
             var auctionPending = client.GetAutionsByStatus(AuctionStatus.Pending);
             foreach (var auction in auctionPending)
             {
-                auctionOpenningGV.Rows.Add(auction.Id, auction.Name, auction.Category.Name, auction.Price, auction.StartTime, auction.EndTime);
+                auctionPendingGV.Rows.Add(auction.Id, auction.Name, auction.Category.Name, auction.Price, auction.StartTime, auction.EndTime);
             }
 
             //Tab Auction Pending
             var auctionOpen = client.GetAutionsByStatus(AuctionStatus.Opened);
             foreach (var auction in auctionOpen)
             {
-                auctionPendingGV.Rows.Add(auction.Id, auction.Name, auction.Category.Name, auction.Owner.UserName, auction.BestBid, auction.EndTime);
+                auctionOpenningGV.Rows.Add(auction.Id, auction.Name, auction.Category.Name, auction.Owner.UserName, auction.BestBid, auction.EndTime);
             }
 
             //Tab Auction Sold
@@ -204,6 +204,7 @@ namespace WinForm_C2CStore
         private void buttonUpdateManual_Click(object sender, EventArgs e)
         {
             client.UpdateAutions();
+            showAutions();
         }
 
         private void checkBoxAutoUpdate_CheckedChanged(object sender, EventArgs e)

@@ -25,7 +25,7 @@
     <div class="col-md-3">
         <p>ID: @(Model.Id)</p>
         <p>Đăng bởi: @Html.ActionLink(Model.Owner.Email, "", "", new { @class = "best-bid" })</p>
-        <p>Giá gốc sản phẩm: @(Model.Price) vnd</p>
+        <p>Giá gốc sản phẩm: @(Model.Price) $</p>
         <p>Bắt đầu: @(string.Format("{0:dd/MM/yyyy H:mm:ss}",Model.StartTime))</p>
         <p>Kết thúc: @(string.Format("{0:dd/MM/yyyy H:mm:ss}", Model.EndTime))</p>
         <p>
@@ -41,7 +41,7 @@
             </span>
         </p>
         <p>Giá được đấu giá cao nhất</p>
-        <h4 class="best-bid">@Model.BestBid vnd</h4>
+        <h4 class="best-bid">@Model.BestBid $</h4>
         @if (Model.Bids.Count() > 0)
         {
             <p class="best-bid">@Model.Bids.ElementAt(0).User.Email</p>
@@ -108,7 +108,7 @@
                         <div class="thumbnail float-container">
                             <img src="@item.PhotoUrl" class="" alt="">
                             <div class="caption">
-                                <h4 class="pull-right best-bid">@item.BestBid vnd</h4>
+                                <h4 class="pull-right best-bid">@item.BestBid $</h4>
                                 <h4>
                                     @Html.ActionLink(@item.Name, "Detail", new { id = item.Id })
                                 </h4>

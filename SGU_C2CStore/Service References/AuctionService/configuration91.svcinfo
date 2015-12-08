@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="TVpWjckuhA2PG2jJswSZ6vXN/gE=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="fHvm3XYfjDYVz625PDyn4GbWc+o=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IAuctionService">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IAuctionService1">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IAuctionService</serializedValue>
+          <serializedValue>BasicHttpBinding_IAuctionService1</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -110,10 +110,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IAuctionService">
+    <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IAuctionService1">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSHttpBinding_IAuctionService</serializedValue>
+          <serializedValue>WSHttpBinding_IAuctionService1</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -236,7 +236,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IAuctionService" contract="AuctionService.IAuctionService" bindingType="basicHttpBinding" address="http://sgudaugia.azurewebsites.net/AuctionService.svc/basic" bindingConfiguration="BasicHttpBinding_IAuctionService">
+    <endpoint name="BasicHttpBinding_IAuctionService1" contract="AuctionService.IAuctionService" bindingType="basicHttpBinding" address="http://sgudaugia.azurewebsites.net/AuctionService.svc/basic" bindingConfiguration="BasicHttpBinding_IAuctionService1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://sgudaugia.azurewebsites.net/AuctionService.svc/basic</serializedValue>
@@ -248,7 +248,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IAuctionService</serializedValue>
+          <serializedValue>BasicHttpBinding_IAuctionService1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>AuctionService.IAuctionService</serializedValue>
@@ -311,7 +311,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IAuctionService</serializedValue>
+          <serializedValue>BasicHttpBinding_IAuctionService1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -321,7 +321,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="WSHttpBinding_IAuctionService" contract="AuctionService.IAuctionService" bindingType="wsHttpBinding" address="http://sgudaugia.azurewebsites.net/AuctionService.svc" bindingConfiguration="WSHttpBinding_IAuctionService">
+    <endpoint name="WSHttpBinding_IAuctionService1" contract="AuctionService.IAuctionService" bindingType="wsHttpBinding" address="http://sgudaugia.azurewebsites.net/AuctionService.svc" bindingConfiguration="WSHttpBinding_IAuctionService1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://sgudaugia.azurewebsites.net/AuctionService.svc</serializedValue>
@@ -333,7 +333,7 @@
           <serializedValue>wsHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSHttpBinding_IAuctionService</serializedValue>
+          <serializedValue>WSHttpBinding_IAuctionService1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>AuctionService.IAuctionService</serializedValue>
@@ -396,7 +396,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSHttpBinding_IAuctionService</serializedValue>
+          <serializedValue>WSHttpBinding_IAuctionService1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
